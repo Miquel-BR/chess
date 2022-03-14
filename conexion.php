@@ -1,12 +1,12 @@
 <?php
 function conectar()
 {
-	@mysql_connect("localhost", "root", "");
-	mysql_select_db("ajax");
+	@mysqli_connect("localhost", "root", "");
+	mysqli_select_db("ajax");
 }
 
 function desconectar()
 {
-	mysql_close();
+	mysqli_close();
 }
 ?>

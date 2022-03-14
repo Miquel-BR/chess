@@ -12,9 +12,9 @@ public static function numdemandas()
 					
 	$i=0;
 	$query = "select count(*) as num from demandas ";
-	$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-	$row=mysql_fetch_assoc($result);
-	mysql_free_result($result);
+	$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+	$row=mysqli_fetch_assoc($result);
+	mysqli_free_result($result);
 	return $row['num'];
 
 	}
@@ -23,9 +23,9 @@ public static function consultademandas()
 	{
 	$i=0;
 	$query = "select * from demandas ";
-	$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-	while ($row[$i] = mysql_fetch_assoc($result)) { $i++; }
-	mysql_free_result($result);
+	$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+	while ($row[$i] = mysqli_fetch_assoc($result)) { $i++; }
+	mysqli_free_result($result);
 	return $row;
 
 	}
@@ -36,7 +36,7 @@ public static function adddemanda($nomdemanda,$observacio)
 
 
 	$query = "INSERT INTO demandas (nom_demand, observacio) VALUES ('$nomdemanda','$observacio')";
-	$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
+	$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
 	}
 
 public static function addprojectdemanda($heatingdemand,$heatingtemp,$hotwaterdemand,$hotwatertemp,$coolingdemand,$coolingtemp,$electricappdemand,$numhomes,$demanda,$projecte)
@@ -46,9 +46,9 @@ public static function addprojectdemanda($heatingdemand,$heatingtemp,$hotwaterde
 	
 	//Saber si ya existe
 	$query = "select count(*) as aux from projectedemandes where projecte='".$projecte."'";
-	$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-	$row=mysql_fetch_assoc($result);
-	mysql_free_result($result);
+	$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+	$row=mysqli_fetch_assoc($result);
+	mysqli_free_result($result);
 	if($row['aux']==0)
 		{
 		$query = "INSERT INTO projectedemandes (projecte,numhomes,heatingdemand,heatingtemp,hotwaterdemand,hotwatertemp,coolingdemand,coolingtemp,electricappdemand) VALUES ('$projecte',$numhomes,$heatingdemand,$heatingtemp,$hotwaterdemand,$hotwatertemp,$coolingdemand,$coolingtemp,$electricappdemand)";
@@ -57,9 +57,9 @@ public static function addprojectdemanda($heatingdemand,$heatingtemp,$hotwaterde
 	else
 		{$query = "UPDATE `projectedemandes` SET `numhomes`=$numhomes,`heatingdemand`=$heatingdemand,`heatingtemp`=$heatingtemp,`hotwaterdemand`=$hotwaterdemand,`hotwatertemp`=$hotwatertemp,`coolingdemand`=$coolingdemand,`electricappdemand`=$electricappdemand,`coolingtemp`=$coolingtemp  WHERE projecte='$projecte'";}
 	
-	$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
+	$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
 	$query = "UPDATE projects SET nomdemanda='$demanda' WHERE actual=1";
-	$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
+	$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
 
 	}
 
@@ -67,9 +67,9 @@ public static function consultaproyectodemanda()
 	{
 	$i=0;
 	$query = "select * from projectedemandes,projects where nomproject=projecte and actual=1 ";
-	$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-	while ($row[$i] = mysql_fetch_assoc($result)) { $i++; }
-	mysql_free_result($result);
+	$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+	while ($row[$i] = mysqli_fetch_assoc($result)) { $i++; }
+	mysqli_free_result($result);
 	return $row;
 
 	}
@@ -78,9 +78,9 @@ public static function consultaproyectodemandaproj($proj)
 	{
 	$i=0;
 	$query = "select * from projectedemandes,projects where nomproject=projecte and projecte='$proj' ";
-	$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-	while ($row[$i] = mysql_fetch_assoc($result)) { $i++; }
-	mysql_free_result($result);
+	$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+	while ($row[$i] = mysqli_fetch_assoc($result)) { $i++; }
+	mysqli_free_result($result);
 	return $row;
 
 	}
@@ -97,9 +97,9 @@ public static function getquantitat($id,$projecte)
 		$i=0;		
 		$query = "select $tipodem as tipo from projectedemandes where projecte='$projecte' ";
 		
-		$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-		while ($row[$i] = mysql_fetch_assoc($result)) { $i++; }
-		mysql_free_result($result);
+		$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+		while ($row[$i] = mysqli_fetch_assoc($result)) { $i++; }
+		mysqli_free_result($result);
 		$quantitat=$row[0]['tipo'];
 
 		}
@@ -113,9 +113,9 @@ public static function getdemandaproject()
 	{
 	$i=0;
 	$query = "select nomdemanda from projects where actual=1 ";
-	$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-	while ($row[$i] = mysql_fetch_assoc($result)) { $i++; }
-	mysql_free_result($result);
+	$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+	while ($row[$i] = mysqli_fetch_assoc($result)) { $i++; }
+	mysqli_free_result($result);
 	return $row[0];
 
 	
@@ -126,9 +126,9 @@ public static function getdemandaproject2($projecte)
 	$i=0;
 	$query = "select nomdemanda from projects where nomproject='$projecte' ";
 	
-	$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-	while ($row[$i] = mysql_fetch_assoc($result)) { $i++; }
-	mysql_free_result($result);
+	$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+	while ($row[$i] = mysqli_fetch_assoc($result)) { $i++; }
+	mysqli_free_result($result);
 	return $row[0];
 
 	
@@ -138,14 +138,14 @@ public static function getdemandadisproject($projecte)
 	{
 	$i=0;
 	$query = "select * from demandas ";
-	$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-	while ($row[$i] = mysql_fetch_assoc($result)) { $i++; }
-	mysql_free_result($result);
+	$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+	while ($row[$i] = mysqli_fetch_assoc($result)) { $i++; }
+	mysqli_free_result($result);
 	$query = "select localitat from projects where nomproject='$projecte' ";
 	$i=0;
-	$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-	while ($row2[$i] = mysql_fetch_assoc($result)) { $i++; }
-	mysql_free_result($result);
+	$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+	while ($row2[$i] = mysqli_fetch_assoc($result)) { $i++; }
+	mysqli_free_result($result);
 	$localitat=$row2[0]['localitat'];
 	//print_r($row);
 	$auxarray=array("localitat","observacio","tipusdis","discompleta");

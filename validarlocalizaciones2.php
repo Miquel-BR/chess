@@ -69,8 +69,8 @@ $projecte=$projh;
 											
 										}
 									//echo "<br>$sentencia";
-									//$retval = mysql_query( $sentencia, $conn );
-									$resultado=mysql_query($sentencia,gestio_projectesBBDD::$dbconn);
+									//$retval = mysqli_query(gestio_projectesBBDD::$dbconn, $sentencia);
+									$resultado=mysqli_query(gestio_projectesBBDD::$dbconn, $sentencia);
 									
 									}
 								}
@@ -113,7 +113,7 @@ $projecte=$projh;
 											{$sentencia="UPDATE distribucions_diaries_projectes SET valor=".$auxvalor.",localitat='".$localitat."' WHERE mes=".$i." and hora=".$j." and idDistribucio_diaria=".$tipodis." and projecte='".$projecte."'";
 											}
 										
-										$resultado=mysql_query($sentencia,gestio_projectesBBDD::$dbconn);
+										$resultado=mysqli_query(gestio_projectesBBDD::$dbconn, $sentencia);
 										$x++;
 										}
 									}

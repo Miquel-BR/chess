@@ -101,8 +101,8 @@ if(isset($_POST['hotwaterdemand']) && isset ($_POST['hotwatertemp']) && isset($_
 										}
 									    else{$sentencia="UPDATE distribucions_anuals_projectes SET valor=".$auxvalor.",demand='".$localitat."' WHERE mes=".$i." and idDistribucio_anual=4 and projecte='$projecte'";
 										}
-									//$retval = mysql_query( $sentencia, $conn );
-									$resultado=mysql_query($sentencia,gestio_projectesBBDD::$dbconn);
+									//$retval = mysqli_query(gestio_projectesBBDD::$dbconn, $sentencia);
+									$resultado=mysqli_query(gestio_projectesBBDD::$dbconn, $sentencia);
 									//echo "<Br>$sentencia";
 									}
 								
@@ -141,7 +141,7 @@ if(isset($_POST['hotwaterdemand']) && isset ($_POST['hotwatertemp']) && isset($_
 											{$sentencia="UPDATE distribucions_diaries_projectes SET valor=".$auxvalor.",demand='".$demanda."' WHERE mes=".$i." and hora=".$j." and idDistribucio_diaria=4 and projecte='".$projecte."'";
 											}
 										
-										$resultado=mysql_query($sentencia,gestio_projectesBBDD::$dbconn);
+										$resultado=mysqli_query(gestio_projectesBBDD::$dbconn, $sentencia);
 										//echo "<Br>$sentencia";
 										$x++;
 										}
@@ -183,8 +183,8 @@ if(isset($_POST['hotwaterdemand']) && isset ($_POST['hotwatertemp']) && isset($_
 										}
 									else{$sentencia="UPDATE distribucions_anuals_projectes SET valor=".$auxvalor.",demand='".$localitat."' WHERE mes=".$i." and idDistribucio_anual=5 and projecte='$projecte'";
 										}
-									//$retval = mysql_query( $sentencia, $conn );
-									$resultado=mysql_query($sentencia,gestio_projectesBBDD::$dbconn);
+									//$retval = mysqli_query(gestio_projectesBBDD::$dbconn, $sentencia);
+									$resultado=mysqli_query(gestio_projectesBBDD::$dbconn, $sentencia);
 									//echo "<Br>$sentencia";
 									}
 								}
@@ -222,7 +222,7 @@ if(isset($_POST['hotwaterdemand']) && isset ($_POST['hotwatertemp']) && isset($_
 											{$sentencia="UPDATE distribucions_diaries_projectes SET valor=".$auxvalor.",demand='".$demanda."' WHERE mes=".$i." and hora=".$j." and idDistribucio_diaria=5 and projecte='".$projecte."'";
 											}
 										
-										$resultado=mysql_query($sentencia,gestio_projectesBBDD::$dbconn);
+										$resultado=mysqli_query(gestio_projectesBBDD::$dbconn, $sentencia);
 										//echo "<Br>$sentencia";
 										$x++;
 										}
@@ -264,8 +264,8 @@ if(isset($_POST['hotwaterdemand']) && isset ($_POST['hotwatertemp']) && isset($_
 										}
 									else{$sentencia="UPDATE distribucions_anuals_projectes SET valor=".$auxvalor.",demand='".$localitat."' WHERE mes=".$i." and idDistribucio_anual=6 and projecte='$projecte'";
 										}
-									//$retval = mysql_query( $sentencia, $conn );
-									$resultado=mysql_query($sentencia,gestio_projectesBBDD::$dbconn);
+									//$retval = mysqli_query(gestio_projectesBBDD::$dbconn, $sentencia);
+									$resultado=mysqli_query(gestio_projectesBBDD::$dbconn, $sentencia);
 									//echo "<Br>$sentencia";
 									}
 								}
@@ -303,7 +303,7 @@ if(isset($_POST['hotwaterdemand']) && isset ($_POST['hotwatertemp']) && isset($_
 											{$sentencia="UPDATE distribucions_diaries_projectes SET valor=".$auxvalor.",demand='".$demanda."' WHERE mes=".$i." and hora=".$j." and idDistribucio_diaria=6 and projecte='".$projecte."'";
 											}
 										
-										$resultado=mysql_query($sentencia,gestio_projectesBBDD::$dbconn);
+										$resultado=mysqli_query(gestio_projectesBBDD::$dbconn, $sentencia);
 										//echo "<Br>$sentencia";
 										$x++;
 										}
@@ -345,8 +345,8 @@ if(isset($_POST['hotwaterdemand']) && isset ($_POST['hotwatertemp']) && isset($_
 										}
 									else{$sentencia="UPDATE distribucions_anuals_projectes SET valor=".$auxvalor.",demand='".$localitat."' WHERE mes=".$i." and idDistribucio_anual=7 and projecte='$projecte'";
 										}
-									//$retval = mysql_query( $sentencia, $conn );
-									$resultado=mysql_query($sentencia,gestio_projectesBBDD::$dbconn);
+									//$retval = mysqli_query(gestio_projectesBBDD::$dbconn, $sentencia);
+									$resultado=mysqli_query(gestio_projectesBBDD::$dbconn, $sentencia);
 									//echo "<Br>$sentencia";
 									}
 								}
@@ -384,7 +384,7 @@ if(isset($_POST['hotwaterdemand']) && isset ($_POST['hotwatertemp']) && isset($_
 											{$sentencia="UPDATE distribucions_diaries_projectes SET valor=".$auxvalor.",demand='".$demanda."' WHERE mes=".$i." and hora=".$j." and idDistribucio_diaria=7 and projecte='".$projecte."'";
 											}
 										
-										$resultado=mysql_query($sentencia,gestio_projectesBBDD::$dbconn);
+										$resultado=mysqli_query(gestio_projectesBBDD::$dbconn, $sentencia);
 										//echo "<Br>$sentencia";
 										$x++;
 										}

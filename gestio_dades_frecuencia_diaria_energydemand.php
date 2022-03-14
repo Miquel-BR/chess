@@ -91,12 +91,12 @@ if(isset($_POST['add'])) {
 	    /*$dbhost = 'localhost';
             $dbuser = 'root';
             $dbpass = '';
-            $conn = @mysql_connect($dbhost, $dbuser, $dbpass);
+            $conn = @mysqli_connect($dbhost, $dbuser, $dbpass);
             
             if(! $conn ) {
-               die('Could not connect: ' . mysql_error());
+               die('Could not connect: ' . mysqli_error());
             }
-         mysql_select_db('scacs2');*/   
+         mysqli_select_db('scacs2');*/   
        $valor[0]=$_POST['una'];
        $valor[1]=$_POST['dos'];
 		$valor[2]=$_POST['tres'];
@@ -141,9 +141,9 @@ if($replicacio=="1")
 				$valhora=$valor[$a_hora];
 				if($existe=="0")
 					{$sentencia="insert into distribucions_diaries (idDistribucio_diaria,hora,valor,mes,demand) VALUES (".$iddistribucio.",".$a_hora.",".$valhora.",".$a_mes.",'".$senddemanda."')";
-					$retval=mysql_query($sentencia,gestio_projectesBBDD::$dbconn);
+					$retval=mysqli_query(gestio_projectesBBDD::$dbconn, $sentencia);
 					$sentencia = "insert into distribucions_diaries_projectes (idDistribucio_diaria,hora,valor,mes,demand,projecte) VALUES (".$iddistribucio.",".$a_hora.",".$valhora.",".$a_mes.",'".$senddemanda."','".$projecte."')";
-					$retval = mysql_query( $sentencia, gestio_projectesBBDD::$dbconn );	
+					$retval = mysqli_query(gestio_projectesBBDD::$dbconn, $sentencia);	
 
 					}
 				else
@@ -159,7 +159,7 @@ if($replicacio=="1")
 					else{$sentencia= "insert into distribucions_diaries_projectes (idDistribucio_diaria,hora,mes,valor,demand,projecte) VALUES (".$iddistribucio.",".$a_hora.",".$a_mes.",".$valhora.",'".$senddemanda."','".$projecte."')";}			
 
 					//$sentencia="UPDATE distribucions_diaries_projectes SET valor=$valhora WHERE idDistribucio_diaria=".$iddistribucio." and hora=".$a_hora." and mes=".$a_mes." and localitat='".$sendlocalitat."' and projecte='".$projecte."'";
-					$retval=mysql_query($sentencia,gestio_projectesBBDD::$dbconn);				
+					$retval=mysqli_query(gestio_projectesBBDD::$dbconn, $sentencia);				
 					}
 				}
 		
@@ -181,10 +181,10 @@ if($replicacio=="1")
 			{
 			
 			$sentencia = "insert into distribucions_diaries (idDistribucio_diaria,hora,valor,mes,demand) VALUES (".$iddistribucio.",".$hora.",".$valhora.",".$sendmes.",'".$senddemanda."')";
-           		$retval = mysql_query( $sentencia, gestio_projectesBBDD::$dbconn );
-             		//mysql_close($conn);
+           		$retval = mysqli_query(gestio_projectesBBDD::$dbconn, $sentencia);
+             		//mysqli_close($conn);
 			$sentencia = "insert into distribucions_diaries_projectes (idDistribucio_diaria,hora,valor,mes,demand,projecte) VALUES (".$iddistribucio.",".$hora.",".$valhora.",".$sendmes.",'".$senddemanda."','".$projecte."')";
-           		$retval = mysql_query( $sentencia, gestio_projectesBBDD::$dbconn );
+           		$retval = mysqli_query(gestio_projectesBBDD::$dbconn, $sentencia);
 
 			}
 		else {
@@ -199,7 +199,7 @@ if($replicacio=="1")
 					else{$sentencia= "insert into distribucions_diaries_projectes (idDistribucio_diaria,hora,mes,valor,demand,projecte) VALUES (".$iddistribucio.",".$hora.",".$sendmes.",".$valhora.",'".$senddemanda."','".$projecte."')";}			
 
 					//$sentencia="UPDATE distribucions_diaries_projectes SET valor=$valhora WHERE idDistribucio_diaria=".$iddistribucio." and hora=".$a_hora." and mes=".$a_mes." and localitat='".$sendlocalitat."' and projecte='".$projecte."'";
-					$retval=mysql_query($sentencia,gestio_projectesBBDD::$dbconn);			
+					$retval=mysqli_query(gestio_projectesBBDD::$dbconn, $sentencia);			
 			}
 		
 		$hora++;

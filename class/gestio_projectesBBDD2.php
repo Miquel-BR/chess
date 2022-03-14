@@ -4,9 +4,9 @@ class gestio_projecte2sBBDD {
 	public static $mysqli;
 	public static function setup() {
 		//bbdd wamp local
-		//self::$dbconn = @mysql_connect("localhost","root","");
+		//self::$dbconn = @mysqli_connect("localhost","root","");
 			
-		//mysql_select_db("scacs2",self::$dbconn); 
+		//mysqli_select_db("scacs2",self::$dbconn); 
 		$i=0;
 		$filas=file("BBDD.txt"); 
 		foreach($filas as $fila){

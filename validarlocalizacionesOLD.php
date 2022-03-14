@@ -86,8 +86,8 @@ if(isset($_POST['locals']))
 											
 										}
 									
-									//$retval = mysql_query( $sentencia, $conn );
-									$resultado=mysql_query($sentencia,gestio_projectesBBDD::$dbconn);
+									//$retval = mysqli_query(gestio_projectesBBDD::$dbconn, $sentencia);
+									$resultado=mysqli_query(gestio_projectesBBDD::$dbconn, $sentencia);
 									
 									}
 								}
@@ -130,7 +130,7 @@ if(isset($_POST['locals']))
 											{$sentencia="UPDATE distribucions_diaries_projectes SET valor=".$auxvalor.",localitat='".$localitat."' WHERE mes=".$i." and hora=".$j." and idDistribucio_diaria=1 and projecte='".$projecte."'";
 											}
 										
-										$resultado=mysql_query($sentencia,gestio_projectesBBDD::$dbconn);
+										$resultado=mysqli_query(gestio_projectesBBDD::$dbconn, $sentencia);
 										$x++;
 										}
 									}
@@ -187,8 +187,8 @@ alert('Hecho dis1');
 										}
 									else{$sentencia="UPDATE distribucions_anuals_projectes SET valor=".$auxvalor.",localitat='".$localitat."' WHERE mes=".$i." and idDistribucio_anual=2 and projecte='$projecte'";
 										}
-									//$retval = mysql_query( $sentencia, $conn );
-									$resultado=mysql_query($sentencia,gestio_projectesBBDD::$dbconn);
+									//$retval = mysqli_query(gestio_projectesBBDD::$dbconn, $sentencia);
+									$resultado=mysqli_query(gestio_projectesBBDD::$dbconn, $sentencia);
 									
 									}
 								}
@@ -228,7 +228,7 @@ alert('Hecho dis1');
 											{$sentencia="UPDATE distribucions_diaries_projectes SET valor=".$auxvalor.",localitat='".$localitat."' WHERE mes=".$i." and hora=".$j." and idDistribucio_diaria=2 and projecte='".$projecte."'";
 											}
 										//echo "sent:$sentencia";
-										$resultado=mysql_query($sentencia,gestio_projectesBBDD::$dbconn);
+										$resultado=mysqli_query(gestio_projectesBBDD::$dbconn, $sentencia);
 										$x++;
 										}
 									}
@@ -277,8 +277,8 @@ alert('Hecho dis1');
 										}
 									else{$sentencia="UPDATE distribucions_anuals_projectes SET valor=".$auxvalor.",localitat='".$localitat."' WHERE mes=".$i." and idDistribucio_anual=3 and projecte='$projecte'";
 										}
-									//$retval = mysql_query( $sentencia, $conn );
-									$resultado=mysql_query($sentencia,gestio_projectesBBDD::$dbconn);
+									//$retval = mysqli_query(gestio_projectesBBDD::$dbconn, $sentencia);
+									$resultado=mysqli_query(gestio_projectesBBDD::$dbconn, $sentencia);
 									
 									}
 								}
@@ -316,7 +316,7 @@ alert('Hecho dis1');
 											{$sentencia="UPDATE distribucions_diaries_projectes SET valor=".$auxvalor.",localitat='".$localitat."' WHERE mes=".$i." and hora=".$j." and idDistribucio_diaria=3 and projecte='".$projecte."'";
 											}
 										
-										$resultado=mysql_query($sentencia,gestio_projectesBBDD::$dbconn);
+										$resultado=mysqli_query(gestio_projectesBBDD::$dbconn, $sentencia);
 										$x++;
 										}
 									}
@@ -365,8 +365,8 @@ alert('Hecho dis1');
 										}
 									else{$sentencia="UPDATE distribucions_anuals_projectes SET valor=".$auxvalor.",localitat='".$localitat."' WHERE mes=".$i." and idDistribucio_anual=8 and projecte='$projecte'";
 										}
-									//$retval = mysql_query( $sentencia, $conn );
-									$resultado=mysql_query($sentencia,gestio_projectesBBDD::$dbconn);
+									//$retval = mysqli_query(gestio_projectesBBDD::$dbconn, $sentencia);
+									$resultado=mysqli_query(gestio_projectesBBDD::$dbconn, $sentencia);
 									
 									}
 								}
@@ -404,7 +404,7 @@ alert('Hecho dis1');
 											{$sentencia="UPDATE distribucions_diaries_projectes SET valor=".$auxvalor.",localitat='".$localitat."' WHERE mes=".$i." and hora=".$j." and idDistribucio_diaria=8 and projecte='".$projecte."'";
 											}
 										
-										$resultado=mysql_query($sentencia,gestio_projectesBBDD::$dbconn);
+										$resultado=mysqli_query(gestio_projectesBBDD::$dbconn, $sentencia);
 										$x++;
 										}
 									}

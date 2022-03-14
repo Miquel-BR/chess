@@ -5,6 +5,7 @@ require("./class/usuari.php");
 
 gestio_projectesBBDD::setup();
 echo "hola";
+
 $existeix=usuari::validate($_POST['usuari'],$_POST['password']);
 echo "$existeix";
 $existeix==0;
@@ -16,9 +17,9 @@ if ($existeix==0) {
 	header("location:login.php?error");
 	} else {
 	/*$fecha=getdate();
-	
+
 	$segtotal=$fecha['seconds']+$fecha['minutes']*60+$fecha['hours']*60*60;
-	if($segtotal<10){$aux4="0000";$aux4=$aux4.$segtotal;} 
+	if($segtotal<10){$aux4="0000";$aux4=$aux4.$segtotal;}
 	else {
 		if($segtotal<100){$aux4="000";$aux4=$aux4.$segtotal;}
 			else{
@@ -29,7 +30,7 @@ if ($existeix==0) {
 				}
 			}
 		}
-	
+
 	if($fecha['mday']<10){$aux1="0";$aux1=$aux1.$fecha['mday'];} else {$aux1=$fecha['mday'];}
 	if($fecha['mon']<10){$aux2="0";$aux2=$aux2.$fecha['mon'];} else {$aux2=$fecha['mon'];}
 	$aux3=$fecha['year'];
@@ -39,7 +40,7 @@ if ($existeix==0) {
 	session_id($codetime);
 	session_start();
 	//echo 'ID Session:'.session_id();
-	
+
 	//echo "<br>$codetime";
 	$_SESSION['validat']="ok";
 	$_SESSION['usuari']=$_POST['usuari'];

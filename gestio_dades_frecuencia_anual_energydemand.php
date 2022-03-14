@@ -47,7 +47,7 @@ $numvalordistribucioanualref=111;
 if($numvalorsdistribucioanual>0)
 	{
 	for($i=1;$i<=12;$i++){
-		
+
 		$valorsdistribucioanualmes=distribuciofrecuencies::getdadesdistribucioanualmesdemandaprojecte($iddistribucio,$senddemanda2,$i,$projecte);
 		$numvalordistribucioanualmes=count($valorsdistribucioanualmes)-1;
 		if($numvalordistribucioanualmes>0){
@@ -61,9 +61,9 @@ if($numvalorsdistribucioanual>0)
 			}
 		}
 	}
-else 
+else
 	{
-	
+
 	for($i=1;$i<=12;$i++){
 		//$valor[$i]="";
 		//Mirar si existen los valores para de libreria para esa localidad
@@ -72,23 +72,23 @@ else
 		if($numvalordistribucioanualref>0){
 			$valor[$i]=$valordistribucioanualmesref[1]['valor'];}
 		else {$valor[$i]="";}
-		
+
 		}
 	}
 
-	
+
 $existe=0;$existe2=0;$sentencia="Sin sentencia";
 
 if(isset($_POST['add'])) {
 	    /*$dbhost = 'localhost';
             $dbuser = 'root';
             $dbpass = '';
-            $conn = @mysql_connect($dbhost, $dbuser, $dbpass);
-            
+            $conn = @mysqli_connect($dbhost, $dbuser, $dbpass);
+
             if(! $conn ) {
-               die('Could not connect: ' . mysql_error());
+               die('Could not connect: ' . mysqli_error());
             }
-            mysql_select_db('scacs2');*/
+            mysqli_select_db('scacs2');*/
 		$valor[1]=$_POST['gen'];
         $valor[2]=$_POST['feb'];
 		$valor[3]=$_POST['mar'];
@@ -101,10 +101,10 @@ if(isset($_POST['add'])) {
 		$valor[10]=$_POST['oct'];
 		$valor[11]=$_POST['nov'];
 		$valor[12]=$_POST['dec'];
-	
+
 
 $valor=distribuciofrecuencies::ajustpercentatgesmes($valor,12);
-//Ver si ya existe 
+//Ver si ya existe
 //if ($numvalorsdistribucioanual>0)
 //	{
 
@@ -118,33 +118,33 @@ $valor=distribuciofrecuencies::ajustpercentatgesmes($valor,12);
 		if ($existe==0)
 			{
 			$sentencia = "insert into distribucions_anuals (idDistribucio_anual,mes,valor,demand) VALUES (".$iddistribucio.",".$mes.",".$valmes.",'".$senddemanda2."')";
-            $retval = mysql_query( $sentencia, gestio_projectesBBDD::$dbconn );
-			$sentencia = "insert into distribucions_anuals_projectes (idDistribucio_anual,mes,valor,demand,projecte) VALUES (".$iddistribucio.",".$mes.",".$valmes.",'".$senddemanda2."','".$projecte."')";			
-            $retval = mysql_query( $sentencia, gestio_projectesBBDD::$dbconn );
+            $retval = mysqli_query(gestio_projectesBBDD::$dbconn, $sentencia);
+			$sentencia = "insert into distribucions_anuals_projectes (idDistribucio_anual,mes,valor,demand,projecte) VALUES (".$iddistribucio.",".$mes.",".$valmes.",'".$senddemanda2."','".$projecte."')";
+            $retval = mysqli_query(gestio_projectesBBDD::$dbconn, $sentencia);
 
  			}
 		else {
 			//$sentencia= "UPDATE distribucions_anuals_projectes SET valor=$valmes WHERE idDistribucio_anual=".$iddistribucio." and mes=".$mes." and demand='".$senddemanda2."' and projecte='".$projecte."'";
-            //$retval = mysql_query( $sentencia, $conn );
+            //$retval = mysqli_query(gestio_projectesBBDD::$dbconn, $sentencia);
 			$auxf=distribuciofrecuencies::obtenirnumdistribucioanualmesprojectedemanda ($mes,$iddistribucio,$senddemanda2,$projecte);
 			$existe2=count($auxf)-1;
 			if($existe2>0){
 			//$sentencia= "UPDATE distribucions_anuals_projectes SET valor=$valmes WHERE idDistribucio_anual=".$iddistribucio." and mes=".$mes." and demand='".$senddemanda2."' and projecte='".$projecte."'";
 			$sentencia= "UPDATE distribucions_anuals_projectes SET valor=$valmes,demand='$senddemanda2' WHERE idDistribucio_anual=".$iddistribucio." and mes=".$mes." and projecte='".$projecte."'";
-			
+
 			}
 			else
 			{
 			$sentencia= "insert into distribucions_anuals_projectes (idDistribucio_anual,mes,valor,demand,projecte) VALUES (".$iddistribucio.",".$mes.",".$valmes.",'".$senddemanda2."','".$projecte."')";
-			}			
+			}
 
-			$retval = mysql_query( $sentencia, gestio_projectesBBDD::$dbconn );
+			$retval = mysqli_query(gestio_projectesBBDD::$dbconn, $sentencia);
 
-			
-			
+
+
 			}
 		$mes++;
-		}	
+		}
 //	}
 //else
 //	{
@@ -153,14 +153,14 @@ $valor=distribuciofrecuencies::ajustpercentatgesmes($valor,12);
 //		{
 //		$valmes=$valor[$mes];
 //		$sentencia = "insert into distribucions_anuals (idDistribucio_anual,mes,valor,demand) VALUES (".$iddistribucio.",".$mes.",".$valmes.",'".$senddemanda2."')";
-//        $retval = mysql_query( $sentencia, $conn );
+//        $retval = mysqli_query(gestio_projectesBBDD::$dbconn, $sentencia);
 //		$mes++;
 //		}
 //	}
-            
+
 
 }
-//echo "var:$existe,$existe2,$sentencia";              
+//echo "var:$existe,$existe2,$sentencia";
 ?>
 <ul class="breadcrumbs first">
     <li><a href="choosedemand.php?t=Energy Demand&projh=<?php echo $projh;?>">Energy Demand</a></li>
@@ -176,9 +176,9 @@ $valor=distribuciofrecuencies::ajustpercentatgesmes($valor,12);
 	<form name="validation" method="POST" action = "<?php $_PHP_SELF ?>" id="gestion_frecuencia_anual2">
                 <div id="table1">
                 <table >
-                    
-		    
-			
+
+
+
 			    <tr>
 				<td width="16%" colspan="10"><label>Type Data: <?php echo $senddistribucio; ?></label></td>
 				<td width="16%" colspan="10"><label>Tipology: <?php echo $senddemanda; ?></label></td>
@@ -187,8 +187,8 @@ $valor=distribuciofrecuencies::ajustpercentatgesmes($valor,12);
 				<td width="16%" colspan="10"></td>
 				<td width="16%" colspan="10"></td>
 				</tr>
-			
-				
+
+
                             <tr>
 				     <td  width="16%" colspan="10"><a href="gestio_dades_frecuencia_diaria_energydemand.php?t=Energy&mes=1&demanda=<?php echo $senddemanda;?>&nomdemand=<?php echo $senddistribucio;?>&iddemand=<?php echo $iddistribucio;?>&projh=<?php echo $projh;?>">  Jan. </a> </td>
                      <td  width="16%" colspan="10"><a href="gestio_dades_frecuencia_diaria_energydemand.php?t=Energy&mes=2&demanda=<?php echo $senddemanda;?>&nomdemand=<?php echo $senddistribucio;?>&iddemand=<?php echo $iddistribucio;?>&projh=<?php echo $projh;?>">  Feb.  </a></td>
@@ -196,22 +196,22 @@ $valor=distribuciofrecuencies::ajustpercentatgesmes($valor,12);
                      <td  width="16%" colspan="10"><a href="gestio_dades_frecuencia_diaria_energydemand.php?t=Energy&mes=4&demanda=<?php echo $senddemanda;?>&nomdemand=<?php echo $senddistribucio;?>&iddemand=<?php echo $iddistribucio;?>&projh=<?php echo $projh;?>">  April. </a> </td>
 					<td  width="16%" colspan="10"><a href="gestio_dades_frecuencia_diaria_energydemand.php?t=Energy&mes=5&demanda=<?php echo $senddemanda;?>&nomdemand=<?php echo $senddistribucio;?>&iddemand=<?php echo $iddistribucio;?>&projh=<?php echo $projh;?>">  May. </a>  </td>
 					<td  width="16%" colspan="10"><a href="gestio_dades_frecuencia_diaria_energydemand.php?t=Energy&mes=6&demanda=<?php echo $senddemanda;?>&nomdemand=<?php echo $senddistribucio;?>&iddemand=<?php echo $iddistribucio;?>&projh=<?php echo $projh;?>">  June.  </a> </td>
-						
+
                             </tr>
-                        
+
 						<?php
-							
+
 								echo "<tr>";
 								echo "<td width=\"16%\" colspan=\"10\"><input class=\"medium :required\" type=\"text\" name=\"gen\" id=\"gen\" style=\"width:50px;\"  value=\"".$valor[1]."\"><span class=\"infobar\">Required Field</span></td>";
 								echo "<td width=\"16%\" colspan=\"10\" ><input class=\"medium :required\" type=\"text\" name=\"feb\" id=\"feb\" style=\"width:50px;\" width=\"100%\" value=\"".$valor[2]."\"><span class=\"infobar\">Required Field</span></td>";
 								echo "<td width=\"16%\" colspan=\"10\" ><input class=\"medium :required\" type=\"text\" name=\"mar\" id=\"mar\" style=\"width:50px;\" width=\"100%\" value=\"".$valor[3]."\"><span class=\"infobar\">Required Field</span></td>";
 								echo "<td width=\"16%\" colspan=\"10\" ><input class=\"medium :required\" type=\"text\" name=\"apr\" id=\"apr\" style=\"width:50px;\" width=\"100%\" value=\"".$valor[4]."\"><span class=\"infobar\">Required Field</span></td>";
 								echo "<td width=\"16%\" colspan=\"10\" ><input class=\"medium :required\" type=\"text\" name=\"mai\" id=\"mai\" style=\"width:50px;\" width=\"100%\" value=\"".$valor[5]."\"><span class=\"infobar\">Required Field</span></td>";
-								
+
 								echo "<td width=\"16%\" colspan=\"10\" ><input class=\"medium :required\" type=\"text\" name=\"jun\" id=\"jun\" style=\"width:50px;\" width=\"100%\" value=\"".$valor[6]."\"><span class=\"infobar\">Camp obligatori</span></td>";
-								
-								
-							
+
+
+
 						?>
 				<tr>
 					<td  width="16%" colspan="10"><a href="gestio_dades_frecuencia_diaria_energydemand.php?t=Energy&mes=7&demanda=<?php echo $senddemanda;?>&nomdemand=<?php echo $senddistribucio;?>&iddemand=<?php echo $iddistribucio;?>&projh=<?php echo $projh;?>">  July. </a> </td>
@@ -226,19 +226,19 @@ $valor=distribuciofrecuencies::ajustpercentatgesmes($valor,12);
 						echo "<td width=\"16%\" colspan=\"10\"><input class=\"medium :required\" type=\"text\" name=\"jul\" id=\"jul\" style=\"width:50px;\" value=\"".$valor[7]."\"><span class=\"infobar\">Required Field</span></td>";
 						echo "<td width=\"16%\" colspan=\"10\"><input class=\"medium :required\" type=\"text\" name=\"ago\" id=\"ago\" style=\"width:50px;\" value=\"".$valor[8]."\"><span class=\"infobar\">Required Field</span></td>";
 						echo "<td width=\"16%\" colspan=\"10\"><input class=\"medium :required\" type=\"text\" name=\"sep\" id=\"sep\" style=\"width:50px;\" value=\"".$valor[9]."\"><span class=\"infobar\">Required Field</span></td>";
-								
+
 						echo "<td width=\"16%\" colspan=\"10\"><input class=\"medium :required\" type=\"text\" name=\"oct\" id=\"oct\" style=\"width:50px;\" value=\"".$valor[10]."\"><span class=\"infobar\">Required Field</span></td>";
-								
+
 						echo "<td width=\"16%\" colspan=\"10\"><input class=\"medium :required\" type=\"text\" name=\"nov\" id=\"nov\" style=\"width:50px;\" value=\"".$valor[11]."\"><span class=\"infobar\">Required Field</span></td>";
 						echo "<td width=\"16%\" colspan=\"10\"><input class=\"medium :required\" type=\"text\" name=\"dec\" id=\"dec\" style=\"width:50px;\" value=\"".$valor[12]."\"><span class=\"infobar\">Required Field</span></td>";
 						echo "</tr>";
-								
-							
+
+
 						?>
 			<tr>
 				<td width="16%" colspan="10">
 				<input type="submit" class="btn blue" style="width:100px;" name="add" id="add" value="Next">
-				
+
 				</td>
 				<td width="16%" colspan="10"><a href="DesplegarGrafico.php?t='Graphic Monthly Energy Demand'&distribuciografiques=<?php echo $iddistribucio;?>&localitatsgrafiques=<?php echo $senddemanda2; ?>&tipograf=mes&tipusdis=proj&projh=<?php echo $projh;?>" class="btn blue right" style="width:100px;">Graphics </a></td>
 
@@ -246,28 +246,28 @@ $valor=distribuciofrecuencies::ajustpercentatgesmes($valor,12);
 				<div class="grid_16 first">
 				</div>
 				<div class="clear"></div>
-                        
-			
+
+
                     </table>
-			
-                
-            
-		
-		
+
+
+
+
+
 		</div>
 		<input type="hidden" name="nomdemand" id="nomdemand" value="<?php echo $senddistribucio; ?>">
 		<input type="hidden" name="iddemand" id="iddemand" value="<?php echo $iddistribucio; ?>">
 		<input type="hidden" name="demanda" id="demanda" value="<?php echo $senddemanda; ?>">
 		<input type="hidden" name="localitat" id="localitat" value="<?php echo $localitat; ?>">
 		<input type="hidden" name="projh" id="projh" value="<?php echo $projh; ?>">
-		
+
 	</form>
         </div>
     </div>
-	
-         
+
+
             <?php
-         
+
       ?>
 
 <?php include("footer.php") ?>

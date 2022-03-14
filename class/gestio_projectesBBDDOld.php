@@ -21,11 +21,11 @@ class gestio_projectesBBDD {
 		$i++; 
 		}
 		//echo ",$i,";
-		//self::$dbconn = @mysql_connect("localhost","root","");
-		//self::$dbconn = @mysql_connect($sql[1],$sql[2],$sql[3]);
-		self::$dbconn = mysql_connect('localhost','chesetup_bcneco','bcneco');
-		//mysql_select_db($sql[0],self::$dbconn); 
-		mysql_select_db('chesetup_scacs2',self::$dbconn);
+		//self::$dbconn = @mysqli_connect("localhost","root","");
+		//self::$dbconn = @mysqli_connect($sql[1],$sql[2],$sql[3]);
+		self::$dbconn = mysqli_connect('localhost','chesetup_bcneco','bcneco');
+		//mysqli_select_db($sql[0],self::$dbconn); 
+		mysqli_select_db('chesetup_scacs2',self::$dbconn);
 		}
 		
 	public static function createUuid() {

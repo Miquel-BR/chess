@@ -51,10 +51,10 @@ if($numvalorsdistribucioanual>0)
 		else {if($iddistribucio==1){$valor[$i]=0;}else{$valor[$i]="";}}
 		}
 	}
-else 
+else
 	{
 	for($i=1;$i<=12;$i++){
-		
+
 		//Mirar si existen los valores para de libreria para esa localidad
 		$valordistribucioanualmesref=distribuciofrecuencies::getdadesdistribucioanualmes($iddistribucio,$sendlocalitat,$i);
 		$numvalordistribucioanualref=count($valordistribucioanualmesref)-1;
@@ -65,18 +65,18 @@ else
 	}
 
 
-	
+
 if(isset($_POST['add'])) {
 	/*
 	    $dbhost = 'localhost';
             $dbuser = 'root';
             $dbpass = '';
-            $conn = @mysql_connect($dbhost, $dbuser, $dbpass);
-            
+            $conn = @mysqli_connect($dbhost, $dbuser, $dbpass);
+
             if(! $conn ) {
-               die('Could not connect: ' . mysql_error());
+               die('Could not connect: ' . mysqli_error());
             }
-            mysql_select_db('scacs2');*/
+            mysqli_select_db('scacs2');*/
 if($iddistribucio!=1){
         $valor[1]=$_POST['gen'];
 		$valor[2]=$_POST['feb'];
@@ -90,7 +90,7 @@ if($iddistribucio!=1){
 		$valor[10]=$_POST['oct'];
 		$valor[11]=$_POST['nov'];
 		$valor[12]=$_POST['dec'];
-	
+
 
 
 $mes=1;
@@ -100,8 +100,8 @@ while ($mes<=12)
 		if($iddistribucio==1)
 			{
 			//Para el mes mirar si existen todos los valores horarios
-			
-		
+
+
 			}
 		//Si Existe para ese mes la distribucion anual
 		$auxe=distribuciofrecuencies::obtenirnumdistribucioanualmes ($mes,$iddistribucio,$sendlocalitat);
@@ -109,13 +109,13 @@ while ($mes<=12)
 		$valmes=$valor[$mes];
 		if ($existe==0)
 			{
-			
-			$sentencia = "insert into distribucions_anuals (idDistribucio_anual,mes,valor,localitat) VALUES (".$iddistribucio.",".$mes.",".$valmes.",'".$sendlocalitat."')";			
-            		$retval = mysql_query( $sentencia, gestio_projectesBBDD::$dbconn );
- 			
-			$sentencia = "insert into distribucions_anuals_projectes (idDistribucio_anual,mes,valor,localitat,projecte) VALUES (".$iddistribucio.",".$mes.",".$valmes.",'".$sendlocalitat."','".$projecte."')";			
-            		$retval = mysql_query( $sentencia, gestio_projectesBBDD::$dbconn );
-			
+
+			$sentencia = "insert into distribucions_anuals (idDistribucio_anual,mes,valor,localitat) VALUES (".$iddistribucio.",".$mes.",".$valmes.",'".$sendlocalitat."')";
+            		$retval = mysqli_query(gestio_projectesBBDD::$dbconn, $sentencia);
+
+			$sentencia = "insert into distribucions_anuals_projectes (idDistribucio_anual,mes,valor,localitat,projecte) VALUES (".$iddistribucio.",".$mes.",".$valmes.",'".$sendlocalitat."','".$projecte."')";
+            		$retval = mysqli_query(gestio_projectesBBDD::$dbconn, $sentencia);
+
 			}
 		else {
 			$auxf=distribuciofrecuencies::obtenirnumdistribucioanualmesprojecte ($mes,$iddistribucio,$sendlocalitat,$projecte);
@@ -123,18 +123,18 @@ while ($mes<=12)
 			if($existe2>0){
 			$sentencia= "UPDATE distribucions_anuals_projectes SET valor=$valmes,localitat='$sendlocalitat' WHERE idDistribucio_anual=".$iddistribucio." and mes=".$mes." and projecte='".$projecte."'";
 			}
-			else{$sentencia= "insert into distribucions_anuals_projectes (idDistribucio_anual,mes,valor,localitat,projecte) VALUES (".$iddistribucio.",".$mes.",".$valmes.",'".$sendlocalitat."','".$projecte."')";}			
+			else{$sentencia= "insert into distribucions_anuals_projectes (idDistribucio_anual,mes,valor,localitat,projecte) VALUES (".$iddistribucio.",".$mes.",".$valmes.",'".$sendlocalitat."','".$projecte."')";}
 
-			$retval = mysql_query( $sentencia, gestio_projectesBBDD::$dbconn );
+			$retval = mysqli_query(gestio_projectesBBDD::$dbconn, $sentencia);
  			}
 		//echo " $sentencia , $mes ";
 		$mes++;
-		
+
 		}
-	
+
 	}
 
-//echo "$existe,$existe2,$sentencia";            
+//echo "$existe,$existe2,$sentencia";
 
 }
 //Presentacion para radiacion iddistribucio=1
@@ -157,8 +157,8 @@ else {$typeinput="";}
                 <div id="table1">
                 <table >
                 <!--<thead>-->
-		    
-			
+
+
 			    <tr>
 				<td width="16%" colspan="10"><label>Distibution Variable: <h2><?php echo "$senddistribucio"; ?></h2></label></td>
 				<td width="16%" colspan="10"><label>Location: <h2><?php echo "$sendlocalitat"; ?></h2></label></td>
@@ -172,11 +172,11 @@ else {$typeinput="";}
 				<td width="16%" colspan="10"><input class="medium :required" type="text" name="unitats" id="unitats" style="width:50px;"  value="<?php echo utf8_encode($unitatfrecuencia); ?>" <?php echo $typeinput; ?>><span class="infobar">Required field</span></td>
 				<td width="16%" colspan="10"></td><td width="16%" colspan="10"></td><td width="16%" colspan="10"></td>
 				<td width="16%" colspan="10"></td>
-				
+
 			</tr>
 			<!--</thead>-->
 			<!--<tbody>-->
-				
+
                             <tr>
 				     <td  width="16%" colspan="10"><a href="gestio_dades_frecuencia_diaria_externalcondition.php?t=Dialy Data Clima Condition&mes=1&locals=<?php echo $sendlocalitat;?>&tipusdis=<?php echo $iddistribucio;?>&projh=<?php echo $projh;?>">  January </a> </td>
                      <td  width="16%" colspan="10"><a href="gestio_dades_frecuencia_diaria_externalcondition.php?t=Dialy Data Clima Condition&mes=2&locals=<?php echo $sendlocalitat;?>&tipusdis=<?php echo $iddistribucio;?>&projh=<?php echo $projh;?>">  February  </a></td>
@@ -184,22 +184,22 @@ else {$typeinput="";}
                      <td  width="16%" colspan="10"><a href="gestio_dades_frecuencia_diaria_externalcondition.php?t=Dialy Data Clima Condition&mes=4&locals=<?php echo $sendlocalitat;?>&tipusdis=<?php echo $iddistribucio;?>&projh=<?php echo $projh;?>">  April </a> </td>
 					<td  width="16%" colspan="10"><a href="gestio_dades_frecuencia_diaria_externalcondition.php?t=Dialy Data Clima Condition&mes=5&locals=<?php echo $sendlocalitat;?>&tipusdis=<?php echo $iddistribucio;?>&projh=<?php echo $projh;?>">  May </a>  </td>
 					<td  width="16%" colspan="10"><a href="gestio_dades_frecuencia_diaria_externalcondition.php?t=Dialy Data Clima Condition&mes=6&locals=<?php echo $sendlocalitat;?>&tipusdis=<?php echo $iddistribucio;?>&projh=<?php echo $projh;?>">  June  </a> </td>
-						
+
                             </tr>
-                        
+
 						<?php
-							
+
 								echo "<tr>";
 								echo "<td width=\"16%\" colspan=\"10\"><input class=\"medium :required\" type=\"text\" name=\"gen\" id=\"gen\" style=\"width:50px;\"  value=\"".$valor[1]."\" ".$typeinput."><span class=\"infobar\">Required Field</span></td>";
 								echo "<td width=\"16%\" colspan=\"10\" ><input class=\"medium :required\" type=\"text\" name=\"feb\" id=\"feb\" style=\"width:50px;\" width=\"100%\" value=\"".$valor[2]."\" ".$typeinput."><span class=\"infobar\">Required Field</span></td>";
 								echo "<td width=\"16%\" colspan=\"10\" ><input class=\"medium :required\" type=\"text\" name=\"mar\" id=\"mar\" style=\"width:50px;\" width=\"100%\" value=\"".$valor[3]."\" ".$typeinput."><span class=\"infobar\">Required Field</span></td>";
 								echo "<td width=\"16%\" colspan=\"10\" ><input class=\"medium :required\" type=\"text\" name=\"apr\" id=\"apr\" style=\"width:50px;\" width=\"100%\" value=\"".$valor[4]."\" ".$typeinput."><span class=\"infobar\">Required Field</span></td>";
 								echo "<td width=\"16%\" colspan=\"10\" ><input class=\"medium :required\" type=\"text\" name=\"mai\" id=\"mai\" style=\"width:50px;\" width=\"100%\" value=\"".$valor[5]."\" ".$typeinput."><span class=\"infobar\">Required Field</span></td>";
-								
+
 								echo "<td width=\"16%\" colspan=\"10\" ><input class=\"medium :required\" type=\"text\" name=\"jun\" id=\"jun\" style=\"width:50px;\" width=\"100%\" value=\"".$valor[6]."\" ".$typeinput."><span class=\"infobar\">Required Field</span></td>";
-								
-								
-							
+
+
+
 						?>
 				<tr>
 					<td  width="16%" colspan="10"><a href="gestio_dades_frecuencia_diaria_externalcondition.php?t=Inici&mes=7&locals=<?php echo $sendlocalitat;?>&tipusdis=<?php echo $iddistribucio;?>&projh=<?php echo $projh;?>">  July </a> </td>
@@ -214,46 +214,46 @@ else {$typeinput="";}
 						echo "<td width=\"16%\" colspan=\"10\"><input class=\"medium :required\" type=\"text\" name=\"jul\" id=\"jul\" style=\"width:50px;\" value=\"".$valor[7]."\" ".$typeinput."><span class=\"infobar\">Required Field</span></td>";
 						echo "<td width=\"16%\" colspan=\"10\"><input class=\"medium :required\" type=\"text\" name=\"ago\" id=\"ago\" style=\"width:50px;\" value=\"".$valor[8]."\" ".$typeinput."><span class=\"infobar\">Required Field</span></td>";
 						echo "<td width=\"16%\" colspan=\"10\"><input class=\"medium :required\" type=\"text\" name=\"sep\" id=\"sep\" style=\"width:50px;\" value=\"".$valor[9]."\" ".$typeinput."><span class=\"infobar\">Required Field</span></td>";
-								
+
 						echo "<td width=\"16%\" colspan=\"10\"><input class=\"medium :required\" type=\"text\" name=\"oct\" id=\"oct\" style=\"width:50px;\" value=\"".$valor[10]."\" ".$typeinput."><span class=\"infobar\">Required Field</span></td>";
-								
+
 						echo "<td width=\"16%\" colspan=\"10\"><input class=\"medium :required\" type=\"text\" name=\"nov\" id=\"nov\" style=\"width:50px;\" value=\"".$valor[11]."\" ".$typeinput."><span class=\"infobar\">Required Field</span></td>";
 						echo "<td width=\"16%\" colspan=\"10\"><input class=\"medium :required\" type=\"text\" name=\"dec\" id=\"dec\" style=\"width:50px;\" value=\"".$valor[12]."\" ".$typeinput."><span class=\"infobar\">Required Field</span></td>";
 						echo "</tr>";
-								
-							
+
+
 						?>
 				<tr>
 				<td width="16%" colspan="10">
 				<input type="submit" class="btn blue" style="width:100px;" name="add" id="add" value="Next"></td>
-				
-				
-			
+
+
+
 				<td width="16%" colspan="10"><a href="DesplegarGrafico.php?t=Graphics&distribuciografiques=<?php echo $iddistribucio;?>&localitatsgrafiques=<?php echo $sendlocalitat; ?>&tipograf=mes&tipusdis=proj&projh=<?php echo $projh;?>" class="btn blue right" style="width:100px;">Graphics </a></td>
-			
+
 				</td><td width="16%" colspan="10"></td><td width="16%" colspan="10"></td><td width="16%" colspan="10"></td><td width="16%" colspan="10"></td>
 				</tr>
 				<div class="grid_16 first">
 				</div>
 				<div class="clear"></div>
                      <!--   </tbody>-->
-			
+
                     </table>
-			
-                
-            
-		
-		
+
+
+
+
+
 		</div>
 		<input type="hidden" name="locals" id="locals" value="<?php echo $sendlocalitat; ?>">
 		<input type="hidden" name="tipusdis" id="tipusdis" value="<?php echo $iddistribucio; ?>">
 		<input type="hidden" name="projh" id="projh" value="<?php echo $projh; ?>">
-		
+
 	</form>
         </div>
     </div>
-	
-         
+
+
             <?php
          //}
       ?>

@@ -4,22 +4,22 @@ require_once('class/distribuciofrecuencies.php');
 require_once('class/projectes.php');
 
 class calculs {
-	
+
 public static function obtenerDT($projecte,$iddistribucio,$sendnomdistribucio,$sendlocalitat)
 	{
 	$i=0;
-		$filas=file("BBDD.txt"); 
+		$filas=file("BBDD.txt");
 		$arrayTemp = array("nameBBDD","host","user","pass");
 		foreach($filas as $fila){
 		if($i==0){
-			$sql = explode("|",$fila);		
+			$sql = explode("|",$fila);
 		}
-		$i++; 
+		$i++;
 		}
 	//$mysqli=new mysqli('localhost','root','','scacs2');
 	$mysqli=new mysqli($sql[1],$sql[2],$sql[3],$sql[0]);
 	if(mysqli_connect_errno()){$texto="No db";}
-	
+
 	$arraydata = array("hora","dia","mes","valor","numhora");
 	//$arraydata2
 	$query2="select * from projectedemandes where projecte='$projecte'";
@@ -32,8 +32,8 @@ public static function obtenerDT($projecte,$iddistribucio,$sendnomdistribucio,$s
 			$auxcool=$row->coolingdemand;
 			$auxelec=$row->electricappdemand;
             $numviviendas=$row->numhomes;
-        } 
-		
+        }
+
 		if($iddistribucio==4){$quantitatI=$auxheat;}
 		if($iddistribucio==5){$quantitatI=$auxhotwater;}
 		if($iddistribucio==6){$quantitatI=$auxcool;}
@@ -41,9 +41,9 @@ public static function obtenerDT($projecte,$iddistribucio,$sendnomdistribucio,$s
 		$quantitatI=$quantitatI*$numviviendas;
 	$result2->free();
 
-	
-	
-	
+
+
+
 	$tipotabla1="distribucions_anuals_projectes";$tipotabla2="distribucions_diaries_projectes";
 	$campoprojecto=" and projecte='".$projecte."'";
 	$tipocampo="demand";
@@ -53,14 +53,14 @@ public static function obtenerDT($projecte,$iddistribucio,$sendnomdistribucio,$s
 	//$query = "select valor from distribucions_anuals where idDistribucio_anual='$iddistribucio'";
 	//}
 	//echo "<br>query: $query,<br>";
-	echo "<br>Acquiring Demand Data<br>"; 
+	echo "<br>Acquiring Demand Data<br>";
 	$result=$mysqli->query($query);
 	$i=1;$k=1;
 	while($row = $result->fetch_object()){
         if($row->valor != null)
-		{$auxq[$i]=$row->valor;}  
+		{$auxq[$i]=$row->valor;}
         else {$auxq[$i]=0;}
-		$i++;   
+		$i++;
         }
 	$result->free();
 	if($i>1){
@@ -69,10 +69,10 @@ public static function obtenerDT($projecte,$iddistribucio,$sendnomdistribucio,$s
 	else {$numdadesdismesdemandaproj=0;}
 	if($numdadesdismesdemandaproj>0)
 		{
-		
+
 		}
 	else {$auxq=1;}
-	
+
 	//Para cada mes
 	for ($sendmes=1;$sendmes<=12;$sendmes++)
 		{
@@ -88,10 +88,10 @@ public static function obtenerDT($projecte,$iddistribucio,$sendnomdistribucio,$s
 			if($sendmes==10){$numday=31;$quantitat=$quantitatI*($auxq[$sendmes]/100)/31;}
 			if($sendmes==11){$numday=30;$quantitat=$quantitatI*($auxq[$sendmes]/100)/30;}
 			if($sendmes==12){$numday=31;$quantitat=$quantitatI*($auxq[$sendmes]/100)/31;}
-			
-	
-	
-	
+
+
+
+
 		//$query2 = "select valor from $tipotabla2 where idDistribucio_diaria='$iddistribucio' and $tipocampo='$sendnomdistribucio' and mes=$sendmes $campoprojecto order by hora";
 		//$resultado=$mysqli->query($query2);
 		for($j=1;$j<=$numday;$j++){
@@ -100,13 +100,13 @@ public static function obtenerDT($projecte,$iddistribucio,$sendnomdistribucio,$s
 			$resultado=$mysqli->query($query2);
 
 			if(!$resultado){$texto="No resultado";}
-			
+
 			while ($data=$resultado->fetch_object()){
 				$texto=$data->valor;
-				$texto=($texto*$quantitat)/100;		
+				$texto=($texto*$quantitat)/100;
 				//array_push($arraydata,$texto);
-				
-				
+
+
 				//$arraydata[]=array("hora"=>$i,"dia"=>$j,"mes"=>$sendmes,"valor"=>$texto,"numhora"=>$k);
 				$arraydata2[$k]=$texto;
 				$k++;
@@ -114,36 +114,36 @@ public static function obtenerDT($projecte,$iddistribucio,$sendnomdistribucio,$s
 				}
 			$resultado->free();
 			}
-		
+
 
 		}
 	if($i>1){
 	return $arraydata2;}
 	else{ return 0;}
-	
+
 }
 
 public static function obtenerDTmensual($projecte,$iddistribucio,$sendnomdistribucio)
 	{
 		$i=0;
-		$filas=file("BBDD.txt"); 
+		$filas=file("BBDD.txt");
 		$arrayTemp = array("nameBBDD","host","user","pass");
 		foreach($filas as $fila){
 		if($i==0){
-			$sql = explode("|",$fila);		
+			$sql = explode("|",$fila);
 		}
-		$i++; 
+		$i++;
 		}
 	//$mysqli=new mysqli('localhost','root','','scacs2');
 	$mysqli=new mysqli($sql[1],$sql[2],$sql[3],$sql[4]);
-	
-	
-	
+
+
+
 	//$mysqli=new mysqli('localhost','root','','scacs2');
 	if(mysqli_connect_errno()){$texto="No db";}
-	
+
 	$query2="select * from projectedemandes where projecte='$projecte'";
-	
+
 	$result2=$mysqli->query($query2);
 	//while ($row=$result2->fetch_assoc()){
 	while($row = $result2->fetch_object()){
@@ -152,8 +152,8 @@ public static function obtenerDTmensual($projecte,$iddistribucio,$sendnomdistrib
 			$auxcool=$row->coolingdemand;
 			$auxelec=$row->electricappdemand;
             $numviviendas=$row->numhomes;
-        } 
-		
+        }
+
 		if($iddistribucio==4){$quantitatI=$auxheat;}
 		if($iddistribucio==5){$quantitatI=$auxhotwater;}
 		if($iddistribucio==6){$quantitatI=$auxcool;}
@@ -161,9 +161,9 @@ public static function obtenerDTmensual($projecte,$iddistribucio,$sendnomdistrib
 		$quantitatI=$quantitatI*$numviviendas;
 	$result2->free();
 
-	
-	
-	
+
+
+
 	$tipotabla1="distribucions_anuals_projectes";//$tipotabla2="distribucions_diaries_projectes";
 	$campoprojecto=" and projecte='".$projecte."'";
 	$tipocampo="demand";
@@ -172,18 +172,18 @@ public static function obtenerDTmensual($projecte,$iddistribucio,$sendnomdistrib
 	$query = "select valor from $tipotabla1 where idDistribucio_anual='$iddistribucio' and $tipocampo='$sendnomdistribucio' $campoprojecto group by mes order by mes";
 	//$query = "select valor from distribucions_anuals where idDistribucio_anual='$iddistribucio'";
 	//}
-	
+
 	$result=$mysqli->query($query);
 	$i=1;$k=1;
 	while($row = $result->fetch_object()){
         $auxq[$i]=$row->valor;
 		$auxq[$i]=$quantitatI*$auxq[$i]/100;
-        $i++;   
+        $i++;
         }
 	$result->free();
 
 	return $auxq;
-	
+
 }
 
 
@@ -192,10 +192,10 @@ public static function cargardatosdeposit2($projecte)
 	$i=1;
 	$aux=array("heatcapacity","surface2","u2","volumen2","mintempa2","density","maxtempa2");
 	$query = "select tank_surface,heat_transfer,volumen,heatcapacity,mintemp,density,maxtemp from subsistemes_seasonal_storage_system where projecte='$projecte'";
-	$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-	while ($row[$i] = mysql_fetch_assoc($result)) { $aux=array("heatcapacity"=>$row[$i]['heatcapacity'],"maxtempa2"=>$row[$i]['maxtemp'],"location"=>$row[$i]['location'],"surface2"=>$row[$i]['tank_surface'],"u2"=>$row[$i]['heat_transfer'],"volumen2"=>$row[$i]['volumen'],"mintempa2"=>$row[$i]['mintemp'],"density"=>$row[$i]['density']);$i++; }
-	mysql_free_result($result);
-		
+	$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+	while ($row[$i] = mysqli_fetch_assoc($result)) { $aux=array("heatcapacity"=>$row[$i]['heatcapacity'],"maxtempa2"=>$row[$i]['maxtemp'],"location"=>$row[$i]['location'],"surface2"=>$row[$i]['tank_surface'],"u2"=>$row[$i]['heat_transfer'],"volumen2"=>$row[$i]['volumen'],"mintempa2"=>$row[$i]['mintemp'],"density"=>$row[$i]['density']);$i++; }
+	mysqli_free_result($result);
+
 	return $aux;
 	}
 
@@ -204,39 +204,39 @@ public static function cargardatosdeposit1($projecte)
 	$i=1;
 	$aux=array("heatcapacity","surface1","u1","volumen1","mintempa1","density");
 	$query = "select tank_surface,heat_transfer,volumen,heatcapacity,mintemp,density from subsistemes_direct_use_tank where projecte='$projecte' ";
-	$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-	while ($row[$i] = mysql_fetch_assoc($result)) { $aux=array("heatcapacity"=>$row[$i]['heatcapacity'],"surface1"=>$row[$i]['tank_surface'],"u1"=>$row[$i]['heat_transfer'],"volumen1"=>$row[$i]['volumen'],"mintempa1"=>$row[$i]['mintemp'],"density"=>$row[$i]['density']);$i++; }
-	mysql_free_result($result);
+	$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+	while ($row[$i] = mysqli_fetch_assoc($result)) { $aux=array("heatcapacity"=>$row[$i]['heatcapacity'],"surface1"=>$row[$i]['tank_surface'],"u1"=>$row[$i]['heat_transfer'],"volumen1"=>$row[$i]['volumen'],"mintempa1"=>$row[$i]['mintemp'],"density"=>$row[$i]['density']);$i++; }
+	mysqli_free_result($result);
 	return $aux;
 	}
-	
+
 public static function cargardatosheatpump($projecte)
 	{
 	$i=1;
 	$aux=array("power","efficiency","TCOPmax","COPmax","TCOPmid","COPmid","TCOPmin","COPmin","bottonCOP");
 	$query = "select power,carnot_efficiency,TCOPmax,COPmax,TCOPmid,COPmid,TCOPmin,COPmin,bottonCOP from subsistemes_heat_pump where projecte='$projecte' ";
-	$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-	while ($row[$i] = mysql_fetch_assoc($result)) {$aux=array("power"=>$row[$i]['power'],"efficiency"=>$row[$i]['carnot_efficiency'],"TCOPmax"=>$row[$i]['TCOPmax'],"COPmax"=>$row[$i]['COPmax'],"TCOPmid"=>$row[$i]['TCOPmid'],"COPmid"=>$row[$i]['COPmid'],"TCOPmin"=>$row[$i]['TCOPmin'],"COPmin"=>$row[$i]['COPmin'],"bottonCOP"=>$row[$i]['bottonCOP']); $i++; }
-	mysql_free_result($result);
-		
+	$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+	while ($row[$i] = mysqli_fetch_assoc($result)) {$aux=array("power"=>$row[$i]['power'],"efficiency"=>$row[$i]['carnot_efficiency'],"TCOPmax"=>$row[$i]['TCOPmax'],"COPmax"=>$row[$i]['COPmax'],"TCOPmid"=>$row[$i]['TCOPmid'],"COPmid"=>$row[$i]['COPmid'],"TCOPmin"=>$row[$i]['TCOPmin'],"COPmin"=>$row[$i]['COPmin'],"bottonCOP"=>$row[$i]['bottonCOP']); $i++; }
+	mysqli_free_result($result);
+
 	return $aux;
-	}	
+	}
 
 public static function cargardatossolarpanel($projecte)
 	{
 	$i=1;
 	$aux=array("stp_b","stp_a1","stp_a2","surfacesolar","tempwinter","tempsummer","temprest","RendFV");
 	$query = "select superficie_solar,stp_b,stp_a1,stp_a2,temp_winter,temp_summer,temp_rest,efficiency from subsistemes_solar where projecte='$projecte' ";
-	$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-	while ($row[$i] = mysql_fetch_assoc($result)) {$aux=array("stp_b"=>$row[$i]['stp_b'],"surfacesolar"=>$row[$i]['superficie_solar'],"stp_a1"=>$row[$i]['stp_a1'],"stp_a2"=>$row[$i]['stp_a2'],"tempwinter"=>$row[$i]['temp_winter'],"tempsummer"=>$row[$i]['temp_summer'],"temprest"=>$row[$i]['temp_rest'],"RendFV"=>$row[$i]['efficiency']); $i++; }
-	mysql_free_result($result);
-		
-	return $aux;	
-	}	
-	
-public static function obtenernumviviendas($projecte) 
+	$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+	while ($row[$i] = mysqli_fetch_assoc($result)) {$aux=array("stp_b"=>$row[$i]['stp_b'],"surfacesolar"=>$row[$i]['superficie_solar'],"stp_a1"=>$row[$i]['stp_a1'],"stp_a2"=>$row[$i]['stp_a2'],"tempwinter"=>$row[$i]['temp_winter'],"tempsummer"=>$row[$i]['temp_summer'],"temprest"=>$row[$i]['temp_rest'],"RendFV"=>$row[$i]['efficiency']); $i++; }
+	mysqli_free_result($result);
+
+	return $aux;
+	}
+
+public static function obtenernumviviendas($projecte)
 	{
-	
+
 	}
 
 public static function cargardatosauxsource($projecte)
@@ -244,23 +244,23 @@ public static function cargardatosauxsource($projecte)
 	$i=1;
 	$aux=array("Qaux1","Qaux2");
 	$query = "select power_storage_system,power_direct_use_tank from subsistemes_aux_energy_sources where projecte='$projecte' ";
-	$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-	while ($row[$i] = mysql_fetch_assoc($result)) {$aux=array("Qaux1"=>$row[$i]['power_direct_use_tank'],"Qaux2"=>$row[$i]['power_storage_system']); $i++; }
-	mysql_free_result($result);
-		
-	return $aux;	
+	$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+	while ($row[$i] = mysqli_fetch_assoc($result)) {$aux=array("Qaux1"=>$row[$i]['power_direct_use_tank'],"Qaux2"=>$row[$i]['power_storage_system']); $i++; }
+	mysqli_free_result($result);
+
+	return $aux;
 	}
 
-public static function cargardatosdistribucion($projecte)	
+public static function cargardatosdistribucion($projecte)
 {
 	$i=0;
 	$query = "select * from subsistemes_distribution_system where projecte='$projecte' ";
-	$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-	while ($row[$i] = mysql_fetch_assoc($result)) {$i++; }
-	mysql_free_result($result);
+	$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+	while ($row[$i] = mysqli_fetch_assoc($result)) {$i++; }
+	mysqli_free_result($result);
 	//echo "$query";
 	//print_r($row);
-	return $row;	
+	return $row;
 
 }
 
@@ -290,27 +290,27 @@ public static function obtenerVarClima($projecte,$iddistribucio)
 			if($sendmes==10){$numday=31;}
 			if($sendmes==11){$numday=30;}
 			if($sendmes==12){$numday=31;}
-			
+
 		//$resultado=$mysqli->query($query);
 		$i=1;
 		for($j=1;$j<=$numday;$j++)
 			{
 			$query = "select valor from distribucions_diaries_projectes where projecte='$projecte' and idDistribucio_diaria=$iddistribucio and mes=$sendmes order by hora ";
-			$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-			while ($row[$i] = mysql_fetch_assoc($result)) {
+			$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+			while ($row[$i] = mysqli_fetch_assoc($result)) {
 				$texto=$row[$i]['valor'];
 				$aux[$k]=array("hora"=>$i,"dia"=>$j,"mes"=>$sendmes,"valor"=>$texto,"numhora"=>$k);
 				$i++;$k++;
 				}
-			mysql_free_result($result);
+			mysqli_free_result($result);
 			}
-		
-		}	
-	return $aux;	
-	}
-	
 
-	
+		}
+	return $aux;
+	}
+
+
+
 public static function iteracion_mst($Rad,$stp_b,$stp_a1,$Tsts,$Ta2,$Text,$Irr,$stp_a2,$Scol,$Celiq,$Tst2s,$maxtemp)
 	{
 	 if($Rad>0 && $Ta2<$maxtemp && $Ta2<$Tst2s){
@@ -321,14 +321,14 @@ public static function iteracion_mst($Rad,$stp_b,$stp_a1,$Tsts,$Ta2,$Text,$Irr,$
 	 else {$result=0;}
 	 return $result;
 	}
-	
+
 public static function iteracion_mdt($demandDT,$Celiq,$Ta1,$Tdts,$perdidas)
 	{
 	 $result=$demandDT/($Celiq*(($Ta1*(1-$perdidas))-$Tdts));
 	 return $result;
-	}	
+	}
 
-public static function iteracion_cop($Ta1,$Ta2,$kHeatpump,$Tcopmax,$COPmax,$Tcopmin,$COPmin,$Tcopmid,$COPmid,$bottonCOP)	
+public static function iteracion_cop($Ta1,$Ta2,$kHeatpump,$Tcopmax,$COPmax,$Tcopmin,$COPmin,$Tcopmid,$COPmid,$bottonCOP)
 	{
 	if($Ta2<$Tcopmin){$result=$bottonCOP;}
 	if($Ta2>=$Tcopmin && $Ta2<=$Tcopmid){$result=(($Ta2-$Tcopmin)*($COPmid-$COPmin)/($Tcopmid-$Tcopmin))+$COPmin;}
@@ -338,7 +338,7 @@ public static function iteracion_cop($Ta1,$Ta2,$kHeatpump,$Tcopmax,$COPmax,$Tcop
 	return $result;
 	}
 
-public static function iteracion_cop_real($cop,$kHeatpump)	
+public static function iteracion_cop_real($cop,$kHeatpump)
 	{
 	if($cop<0){$result=20;}
 	else{
@@ -346,7 +346,7 @@ public static function iteracion_cop_real($cop,$kHeatpump)
 		else{$result=10;}
 	}
 	return $cop;
-	
+
 	}
 
 public static function iteracion_Qa2($copreal,$Ta1min,$Ta2min,$PHeatPump,$Ta1i,$Ta2i)
@@ -356,14 +356,14 @@ public static function iteracion_Qa2($copreal,$Ta1min,$Ta2min,$PHeatPump,$Ta1i,$
 		else {$result=0;}
 		return $result;
 		}
-		
-public static function calculEe($Ta1min,$Ta2min,$PHeatPump,$Ta1i,$Ta2i)		
+
+public static function calculEe($Ta1min,$Ta2min,$PHeatPump,$Ta1i,$Ta2i)
 		{
 		if($Ta1i<=$Ta1min && $Ta2i>=$Ta2min)
 			{$result=$PHeatPump*1000;}
 		else {$result=0;}
 		return $result;
-		
+
 		}
 public static function iteracion_Qa1($Ee,$Qa2)
 		{
@@ -429,6 +429,6 @@ public static function calculPs($mst,$Celiq,$Tsts,$Tst1s)
 		}
 
 
-		
+
 }
 ?>

@@ -9,9 +9,9 @@ class distribuciofrecuencies {
 				
 			$i=0;
 			$query = "select * from tipus_distribucio ";
-			$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-			while ($row[$i] = mysql_fetch_assoc($result)) { $i++; }
-			mysql_free_result($result);
+			$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+			while ($row[$i] = mysqli_fetch_assoc($result)) { $i++; }
+			mysqli_free_result($result);
 		
 	return $row;
 	}
@@ -20,9 +20,9 @@ class distribuciofrecuencies {
 				
 			$i=0;
 			$query = "select * from tipus_distribucio where exists (select * from distribucions_anuals,tipus_distribucio where idDistribucio_anual=tipus_distribucio.id_distribucio) and exists (select * from distribucions_diaries,tipus_distribucio where idDistribucio_diaria=tipus_distribucio.id_distribucio) and not exists (select * from distribucio_anual_diaria,tipus_distribucio where distribucio_anual_diaria.id_distribucio=tipus_distribucio.id_distribucio) group by tipus_distribucio.id_distribucio";
-			$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-			while ($row[$i] = mysql_fetch_assoc($result)) { $i++; }
-			mysql_free_result($result);
+			$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+			while ($row[$i] = mysqli_fetch_assoc($result)) { $i++; }
+			mysqli_free_result($result);
 		
 	return $row;
 	
@@ -33,9 +33,9 @@ class distribuciofrecuencies {
 				
 			$i=0;
 			$query = "SELECT distribucio_anual_diaria.id_distribucio,nom_distribucio FROM `distribucio_anual_diaria`,tipus_distribucio where tipus_distribucio.id_distribucio=distribucio_anual_diaria.id_distribucio group by id_distribucio";
-			$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-			while ($row[$i] = mysql_fetch_assoc($result)) { $i++; }
-			mysql_free_result($result);
+			$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+			while ($row[$i] = mysqli_fetch_assoc($result)) { $i++; }
+			mysqli_free_result($result);
 		
 		return $row;
 		
@@ -44,10 +44,10 @@ class distribuciofrecuencies {
 	{
 		$i=0;
 		$query="select id_distribucio from tipus_distribucio where nom_distribucio='$distribucio'";
-		$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-		$row=mysql_fetch_assoc($result);
-		$numero=mysql_num_rows($result);
-		mysql_free_result($result);
+		$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+		$row=mysqli_fetch_assoc($result);
+		$numero=mysqli_num_rows($result);
+		mysqli_free_result($result);
 		return $row['id_distribucio'];
 		
 	}
@@ -56,10 +56,10 @@ class distribuciofrecuencies {
 	{
 		$i=0;
 		$query="select nom_distribucio from tipus_distribucio where id_distribucio='$iddistribucio'";
-		$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-		$row=mysql_fetch_assoc($result);
-		$numero=mysql_num_rows($result);
-		mysql_free_result($result);
+		$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+		$row=mysqli_fetch_assoc($result);
+		$numero=mysqli_num_rows($result);
+		mysqli_free_result($result);
 		return $row['nom_distribucio'];
 		
 	}
@@ -73,11 +73,11 @@ class distribuciofrecuencies {
 		//if($iddistribucio==4 || $iddistribucio==5 || $iddistribucio==6 || $iddistribucio==7){
 		//	$query= "select * from distribucions_anuals where mes=$mes and idDistribucio_anual=$iddistribucio and demand='$localitat'";}
 		//echo "$query";
-		$resultado=mysql_query($query,gestio_projectesBBDD::$dbconn);
-		while ($row[$i] = mysql_fetch_assoc($resultado)) { $i++; }
+		$resultado=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+		while ($row[$i] = mysqli_fetch_assoc($resultado)) { $i++; }
 		
 		
-		mysql_free_result($resultado);
+		mysqli_free_result($resultado);
 		return $row;
 	}
 
@@ -86,11 +86,11 @@ class distribuciofrecuencies {
 		//$query= "select * from distribucions_anuals_projectes where mes=$mes and idDistribucio_anual=$iddistribucio and localitat='$localitat' and projecte='$projecte'";
 		$query= "select * from distribucions_anuals_projectes where mes=$mes and idDistribucio_anual=$iddistribucio and projecte='$projecte'";
 
-		$resultado=mysql_query($query,gestio_projectesBBDD::$dbconn);
-		$row=mysql_fetch_assoc($resultado);
+		$resultado=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+		$row=mysqli_fetch_assoc($resultado);
 		
 		
-		mysql_free_result($resultado);
+		mysqli_free_result($resultado);
 		return $row;
 	}
 
@@ -104,11 +104,11 @@ class distribuciofrecuencies {
 		
 		//$query= "select * from distribucions_anuals_projectes where mes=$mes and idDistribucio_anual=$iddistribucio and projecte='$projecte'";
 
-		$resultado=mysql_query($query,gestio_projectesBBDD::$dbconn);
-		$row=mysql_fetch_assoc($resultado);
+		$resultado=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+		$row=mysqli_fetch_assoc($resultado);
 		
 		
-		mysql_free_result($resultado);
+		mysqli_free_result($resultado);
 		return $row;
 	}
 	
@@ -117,11 +117,11 @@ class distribuciofrecuencies {
 		//$query= "select * from distribucions_diaries_projectes where mes=$mes and hora=$hora and idDistribucio_diaria=$iddistribucio and localitat='$localitat' and projecte='$projecte'";
 		$query= "select * from distribucions_diaries_projectes where mes=$mes and hora=$hora and idDistribucio_diaria=$iddistribucio and projecte='$projecte'";
 
-		$resultado=mysql_query($query,gestio_projectesBBDD::$dbconn);
-		$row=mysql_fetch_assoc($resultado);
+		$resultado=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+		$row=mysqli_fetch_assoc($resultado);
 		
 		
-		mysql_free_result($resultado);
+		mysqli_free_result($resultado);
 		return $row;
 	}
 	public static function obtenirnumdistribuciodiariameshoraprojecteloc($mes,$hora,$iddistribucio,$localitat,$projecte)
@@ -129,11 +129,11 @@ class distribuciofrecuencies {
 		$query= "select * from distribucions_diaries_projectes where mes=$mes and hora=$hora and idDistribucio_diaria=$iddistribucio and localitat='$localitat' and projecte='$projecte'";
 		//$query= "select * from distribucions_diaries_projectes where mes=$mes and hora=$hora and idDistribucio_diaria=$iddistribucio and projecte='$projecte'";
 
-		$resultado=mysql_query($query,gestio_projectesBBDD::$dbconn);
-		$row=mysql_fetch_assoc($resultado);
+		$resultado=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+		$row=mysqli_fetch_assoc($resultado);
 		
 		
-		mysql_free_result($resultado);
+		mysqli_free_result($resultado);
 		return $row;
 	}
 	
@@ -142,11 +142,11 @@ class distribuciofrecuencies {
 		//$query= "select * from distribucions_diaries_projectes where mes=$mes and hora=$hora and idDistribucio_diaria=$iddistribucio and demand='$demanda' and projecte='$projecte'";
 		$query= "select * from distribucions_diaries_projectes where mes=$mes and hora=$hora and idDistribucio_diaria=$iddistribucio and projecte='$projecte'";
 
-		$resultado=mysql_query($query,gestio_projectesBBDD::$dbconn);
-		$row=mysql_fetch_assoc($resultado);
+		$resultado=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+		$row=mysqli_fetch_assoc($resultado);
 		
 		
-		mysql_free_result($resultado);
+		mysqli_free_result($resultado);
 		return $row;
 	}
 	
@@ -155,11 +155,11 @@ class distribuciofrecuencies {
 		$query= "select * from distribucions_diaries_projectes where mes=$mes and hora=$hora and idDistribucio_diaria=$iddistribucio and demand='$demanda' and projecte='$projecte'";
 		//$query= "select * from distribucions_diaries_projectes where mes=$mes and hora=$hora and idDistribucio_diaria=$iddistribucio and projecte='$projecte'";
 
-		$resultado=mysql_query($query,gestio_projectesBBDD::$dbconn);
-		$row=mysql_fetch_assoc($resultado);
+		$resultado=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+		$row=mysqli_fetch_assoc($resultado);
 		
 		
-		mysql_free_result($resultado);
+		mysqli_free_result($resultado);
 		return $row;
 	}
 	
@@ -168,11 +168,11 @@ class distribuciofrecuencies {
 		$query= "select * from distribucions_anuals_projectes where mes=$mes and idDistribucio_anual=$iddistribucio and demand='$demanda' and projecte='$projecte'";
 		//$query= "select * from distribucions_anuals_projectes where mes=$mes and idDistribucio_anual=$iddistribucio and projecte='$projecte'";
 
-		$resultado=mysql_query($query,gestio_projectesBBDD::$dbconn);
-		$row=mysql_fetch_assoc($resultado);
+		$resultado=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+		$row=mysqli_fetch_assoc($resultado);
 		
 		
-		mysql_free_result($resultado);
+		mysqli_free_result($resultado);
 		return $row;
 	}
 	
@@ -181,11 +181,11 @@ class distribuciofrecuencies {
 		$query= "select * from distribucions_anuals_projectes where mes=$mes and idDistribucio_anual=$iddistribucio and demand='$demanda' and projecte='$projecte'";
 		//$query= "select * from distribucions_anuals_projectes where mes=$mes and idDistribucio_anual=$iddistribucio and projecte='$projecte'";
 
-		$resultado=mysql_query($query,gestio_projectesBBDD::$dbconn);
-		$row=mysql_fetch_assoc($resultado);
+		$resultado=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+		$row=mysqli_fetch_assoc($resultado);
 		
 		
-		mysql_free_result($resultado);
+		mysqli_free_result($resultado);
 		return $row;
 	}
 	
@@ -193,10 +193,10 @@ class distribuciofrecuencies {
 	{
 		$i=1;
 		$query= " select * from distribucions_anuals where mes=$mes and idDistribucio_anual=$iddistribucio and demand='$demanda'";
-		$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
+		$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
 		
-		while ($row[$i] = mysql_fetch_assoc($result)) { $i++; }
-		mysql_free_result($result);
+		while ($row[$i] = mysqli_fetch_assoc($result)) { $i++; }
+		mysqli_free_result($result);
         return $row;
 
 	}
@@ -204,43 +204,43 @@ class distribuciofrecuencies {
 	public static function checkdistribucioanual($iddistribucio,$localitat)
 		{
 		$query= " select count(*) as count from distribucions_anuals where idDistribucio_anual='$iddistribucio' and localitat='$localitat'";
-		$resultado=mysql_query($query,gestio_projectesBBDD::$dbconn);
-		$row=mysql_fetch_assoc($resultado);
+		$resultado=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+		$row=mysqli_fetch_assoc($resultado);
 		
 		$aux=$resultado;
-		mysql_free_result($resultado);
+		mysqli_free_result($resultado);
 		return $row['count'];
 		}
 
 	public static function checkdistribucioanualdemanda($iddistribucio,$demanda)
 		{
 		$query= " select count(*) as count from distribucions_anuals where idDistribucio_anual='$iddistribucio' and demand='$demanda'";
-		$resultado=mysql_query($query,gestio_projectesBBDD::$dbconn);
-		$row=mysql_fetch_assoc($resultado);
+		$resultado=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+		$row=mysqli_fetch_assoc($resultado);
 		
 		$aux=$resultado;
-		mysql_free_result($resultado);
+		mysqli_free_result($resultado);
 		return $row['count'];
 		}
 
 	public static function checkdistribuciodiaria($iddistribucio,$localitat)
 		{
 		$query= " select count(*) as count from distribucions_diaries where idDistribucio_diaria='$iddistribucio' and localitat='$localitat'"; 
-		$resultado=mysql_query($query,gestio_projectesBBDD::$dbconn);
-		$row=mysql_fetch_assoc($resultado);
+		$resultado=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+		$row=mysqli_fetch_assoc($resultado);
 		
 		$aux=$resultado;
-		mysql_free_result($resultado);
+		mysqli_free_result($resultado);
 		return $row['count'];
 		}
 		
 	public static function getdistribucioref($iddistribucio,$nom,$tipograf)
 		{
 		$query= " select tipo from tipus_distribucio where id_distribucio='$iddistribucio'";
-		$resultado=mysql_query($query,gestio_projectesBBDD::$dbconn);
-		$row=mysql_fetch_assoc($resultado);
+		$resultado=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+		$row=mysqli_fetch_assoc($resultado);
 		$aux=$row['tipo'];
-		mysql_free_result($resultado);
+		mysqli_free_result($resultado);
 		if($aux==2){
 			if($tipograf=='hor'){
 				$query= " select * from distribucions_diaries where idDistribucio_diaria='$iddistribucio' and localitat='$nom'"; 
@@ -257,11 +257,11 @@ class distribuciofrecuencies {
 				$query= " select * from distribucions_anuals where idDistribucio_anual='$iddistribucio' and demand='$nom'"; 
 				}
 		}
-		$resultado=mysql_query($query,gestio_projectesBBDD::$dbconn);
-		$row=mysql_fetch_assoc($resultado);
+		$resultado=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+		$row=mysqli_fetch_assoc($resultado);
 		
 		$aux=$resultado;
-		mysql_free_result($resultado);
+		mysqli_free_result($resultado);
 		return $row;
 		}
 	
@@ -271,10 +271,10 @@ class distribuciofrecuencies {
 		{
 		$query= " select tipo from tipus_distribucio where id_distribucio='$iddistribucio'";
 		
-		$resultado=mysql_query($query,gestio_projectesBBDD::$dbconn);
-		$row=mysql_fetch_assoc($resultado);
+		$resultado=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+		$row=mysqli_fetch_assoc($resultado);
 		$aux=$row['tipo'];
-		mysql_free_result($resultado);
+		mysqli_free_result($resultado);
 		if($aux==2){
 			if($tipograf=='hor'){
 				$query= " select * from distribucions_diaries_projectes where idDistribucio_diaria='$iddistribucio' and localitat='$nom' and projecte='$projecte'"; 
@@ -295,22 +295,22 @@ class distribuciofrecuencies {
 					}
 		}
 		
-		$resultado=mysql_query($query,gestio_projectesBBDD::$dbconn);
-		$row=mysql_fetch_assoc($resultado);
+		$resultado=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+		$row=mysqli_fetch_assoc($resultado);
 		
 		$aux=$resultado;
-		mysql_free_result($resultado);
+		mysqli_free_result($resultado);
 		return $row;
 		}
 	
 	public static function checkdistribuciodiariademanda($iddistribucio,$demanda,$mes)
 		{
 		$query= " select count(*) as count from distribucions_diaries where idDistribucio_diaria='$iddistribucio' and demand='$demanda' and mes='$mes'"; 
-		$resultado=mysql_query($query,gestio_projectesBBDD::$dbconn);
-		$row=mysql_fetch_assoc($resultado);
+		$resultado=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+		$row=mysqli_fetch_assoc($resultado);
 		
 		$aux=$resultado;
-		mysql_free_result($resultado);
+		mysqli_free_result($resultado);
 		return $row['count'];
 		}
 
@@ -319,11 +319,11 @@ class distribuciofrecuencies {
 
 		$query= " select count(*) as count from distribucions_diaries where idDistribucio_diaria='$iddistribucio' and hora='$hora' and mes='$mes' and localitat='$localitat'";
 
-		$resultado=mysql_query($query,gestio_projectesBBDD::$dbconn);
-		$row=mysql_fetch_assoc($resultado);
+		$resultado=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+		$row=mysqli_fetch_assoc($resultado);
 		
 		$aux=$resultado;
-		mysql_free_result($resultado);
+		mysqli_free_result($resultado);
 		return $row['count'];
 	}
 	
@@ -332,22 +332,22 @@ class distribuciofrecuencies {
 		$i=0;
 		
 		$query= " select * from distribucions_diaries where idDistribucio_diaria='$iddistribucio' and hora='$hora' and mes='$mes' and localitat='$localitat'";
-		$resultado=mysql_query($query,gestio_projectesBBDD::$dbconn);
-		while ($row[$i] = mysql_fetch_assoc($resultado)) { $i++; }
+		$resultado=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+		while ($row[$i] = mysqli_fetch_assoc($resultado)) { $i++; }
 		
 
-		mysql_free_result($resultado);
+		mysqli_free_result($resultado);
 		return $row;
 	}
 
 	public static function obtenirnumdistribucioanualhorademanda ($hora,$distribucio,$mes,$demanda)
 	{
 		$query= " select count(*) as count from distribucions_diaries, tipus_distribucio where id_distribucio=idDistribucio_diaria and hora='$hora' and nom_distribucio='$distribucio' and mes='$mes' and demand='$demanda'";
-		$resultado=mysql_query($query,gestio_projectesBBDD::$dbconn);
-		$row=mysql_fetch_assoc($resultado);
+		$resultado=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+		$row=mysqli_fetch_assoc($resultado);
 		
 		$aux=$resultado;
-		mysql_free_result($resultado);
+		mysqli_free_result($resultado);
 		return $row['count'];
 	}
 	
@@ -356,11 +356,11 @@ class distribuciofrecuencies {
 		$i=0;
 		
 		$query= " select * from distribucions_diaries where idDistribucio_diaria='$iddistribucio' and hora='$hora' and mes='$mes' and demand='$localitat'";
-		$resultado=mysql_query($query,gestio_projectesBBDD::$dbconn);
-		while ($row[$i] = mysql_fetch_assoc($resultado)) { $i++; }
+		$resultado=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+		while ($row[$i] = mysqli_fetch_assoc($resultado)) { $i++; }
 		
 
-		mysql_free_result($resultado);
+		mysqli_free_result($resultado);
 		return $row;
 	}
 	
@@ -374,9 +374,9 @@ class distribuciofrecuencies {
 		//return vector binario de datos 2x12
 		$i=0;
 		$query = "select * from distribucions_anuals where idDistribucio_anual='$iddistribucio'";
-		$resultado=mysql_query($query,gestio_projectesBBDD::$dbconn);
-		while ($row[$i] = mysql_fetch_assoc($resultado)) { $i++; }
-		mysql_free_result($resultado);
+		$resultado=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+		while ($row[$i] = mysqli_fetch_assoc($resultado)) { $i++; }
+		mysqli_free_result($resultado);
 		return $row;
 	}
 
@@ -385,9 +385,9 @@ class distribuciofrecuencies {
 		//return vector binario de datos 2x24
 		$i=0;
 		$query = "select * from distribucions_diaries where idDistribucio_diaria='$iddistribucio'";
-		$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-		while ($row[$i] = mysql_fetch_assoc($result)) { $i++; }
-		mysql_free_result($result);
+		$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+		while ($row[$i] = mysqli_fetch_assoc($result)) { $i++; }
+		mysqli_free_result($result);
 		return $row;
 
 
@@ -397,22 +397,22 @@ class distribuciofrecuencies {
 	{
 		$i=0;
 		$query="delete from distribucions_anuals where idDistribucio_anual='$iddistribucio'";
-		$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-		mysql_free_result($result);
+		$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+		mysqli_free_result($result);
 		$query="delete from distribucio_anual_diaria where id_distribucio='$iddistribucio'";
-		$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-		mysql_free_result($result);
+		$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+		mysqli_free_result($result);
 
 	}
 	public static function borrardistribuciodiaria($iddistribucio)
 	{
 		
 		$query="delete from distribucions_diaries where idDistribucio_diaria='$iddistribucio'";
-		$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-		mysql_free_result($result);
+		$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+		mysqli_free_result($result);
 		$query="delete from distribucio_anual_diaria where id_distribucio=".$iddistribucio;
-		$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-		mysql_free_result($result);
+		$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+		mysqli_free_result($result);
 
 	}
 
@@ -424,8 +424,8 @@ class distribuciofrecuencies {
 			{
 			//crear uno nuevo
 			$query="insert into tipus_distribucio (nom_distribucio,id_distribucio) VALUES ('$nomdistribucio','$iddistribucio')";
-			$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-			mysql_free_result($result);
+			$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+			mysqli_free_result($result);
 			}
 		else
 			{
@@ -439,8 +439,8 @@ class distribuciofrecuencies {
 			{
 			$j=$i-1;
 			$query="insert into distribucions_anuals (idDistribucio_anual,mes,valor) VALUES ('$iddistribucio','$i','$valors[$j]')";
-			$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-			mysql_free_result($result);
+			$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+			mysqli_free_result($result);
 			$i++;
 			}
 
@@ -457,8 +457,8 @@ class distribuciofrecuencies {
 			{
 			//crear uno nuevo
 			$query="insert into tipus_distribucio (nom_distribucio,id_distribucio) VALUES ('$nomdistribucio','$iddistribucio')";
-			$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-			mysql_free_result($result);
+			$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+			mysqli_free_result($result);
 			}
 		else
 			{
@@ -472,8 +472,8 @@ class distribuciofrecuencies {
 			{
 			$j=$i-1;
 			$query="insert into distribucions_diaries (idDistribucio_diaria,hora,valor) VALUES ('$iddistribucio','$i','$valors[$j]')";
-			$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-			mysql_free_result($result);
+			$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+			mysqli_free_result($result);
 			$i++;
 			}
 
@@ -489,8 +489,8 @@ class distribuciofrecuencies {
 		while ($i<=12)
 			{
 			$query="update distribucions_anuals SET idDistribucio_anual=".$iddistribucio.",mes=".$i.",valor=".$valor[$i];
-			$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-			mysql_free_result($result);
+			$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+			mysqli_free_result($result);
 			$i++;
 			}
 		}
@@ -501,8 +501,8 @@ class distribuciofrecuencies {
 		while ($i<=24)
 			{
 			$query="update distribucions_diaries SET idDistribucio_diaria=".$iddistribucio.",hora=".$i.",valor=".$valor[$i];
-			$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-			mysql_free_result($result);
+			$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+			mysqli_free_result($result);
 			$i++;
 			}
 		}
@@ -511,11 +511,11 @@ class distribuciofrecuencies {
 		{
 			
 			$query = "select count(*) as count from tipus_distribucio where nom_distribucio='$distribucio'";
-			$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-			$row=mysql_fetch_assoc($result);
+			$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+			$row=mysqli_fetch_assoc($result);
 		
 			
-			mysql_free_result($result);
+			mysqli_free_result($result);
 			return $row['count'];
 			
 		}
@@ -524,11 +524,11 @@ class distribuciofrecuencies {
 		{
 			
 			$query = "select count(*) as count from tipus_distribucio,tipus_distribucio_detalls where tipus_distribucio.id_distribucio=tipus_distribucio_detalls.id_distribucio and nom_distribucio='$distribucio' and localitat='$localitat'";
-			$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-			$row=mysql_fetch_assoc($result);
+			$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+			$row=mysqli_fetch_assoc($result);
 		
 			
-			mysql_free_result($result);
+			mysqli_free_result($result);
 			return $row['count'];
 			
 		}
@@ -538,11 +538,11 @@ class distribuciofrecuencies {
 		{
 		$i=0;
 		$query3="select tipo from tipus_distribucio where id_distribucio=$iddistribucio";
-		$result3=mysql_query($query3,gestio_projectesBBDD::$dbconn);
-		while ($row3[$i] = mysql_fetch_assoc($result3)) { $i++; }
+		$result3=mysqli_query(gestio_projectesBBDD::$dbconn, $query3);
+		while ($row3[$i] = mysqli_fetch_assoc($result3)) { $i++; }
 		if($row3[0]['tipo']==2){$tipusdis="localitat";}
 		if($row3[0]['tipo']==1){$tipusdis="demand";}
-		mysql_free_result($result3);
+		mysqli_free_result($result3);
 		//if(($iddistribucio==1) || ($iddistribucio==2) || ($iddistribucio==3) || ($iddistribucio==8))
 		//	{$tipusdis="localitat";}
 		//if (($iddistribucio==4) || ($iddistribucio==5) || ($iddistribucio==6) || ($iddistribucio==7))
@@ -554,10 +554,10 @@ class distribuciofrecuencies {
 			//Buscar cantidad
 			$i=0;
 			$query2="select * from projectedemandes where projecte='$proj'";
-			$result2=mysql_query($query2,gestio_projectesBBDD::$dbconn);
-			while ($row2[$i] = mysql_fetch_assoc($result2)) { $i++; }
+			$result2=mysqli_query(gestio_projectesBBDD::$dbconn, $query2,);
+			while ($row2[$i] = mysqli_fetch_assoc($result2)) { $i++; }
 			$num=count($row2)-1;
-			mysql_free_result($result2);
+			mysqli_free_result($result2);
 			
 			if($num>0){
 				if($iddistribucio==4){$quantitat=$row2[0]['heatingdemand'];}
@@ -575,14 +575,14 @@ class distribuciofrecuencies {
 		$i=1;
 		$query = "select valor from distribucions_anuals_projectes where idDistribucio_anual='$iddistribucio' and $tipusdis='$nomdist' and projecte='$proj' group by mes order by mes";
 		
-		$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
+		$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
 		if (!$result) {
 			$row="";
     			return $row;
 			}
 		else{
-		while ($row[$i] = mysql_fetch_assoc($result)) { $i++; }
-		mysql_free_result($result);
+		while ($row[$i] = mysqli_fetch_assoc($result)) { $i++; }
+		mysqli_free_result($result);
 		$i=1;
 		foreach($row as $ar)
 			{
@@ -599,14 +599,14 @@ class distribuciofrecuencies {
 		//para datos externos-localidades
 		$i=1;
 		$query = "select valor from distribucions_anuals_projectes where  idDistribucio_anual='$iddistribucio' and localitat='$localitat' and projecte='$projecte' order by mes";
-		$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
+		$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
 		if (!$result) {
 			$row="";
     			return $row;
 			}
 		else{
-		while ($row[$i] = mysql_fetch_assoc($result)) { $i++; }
-		mysql_free_result($result);
+		while ($row[$i] = mysqli_fetch_assoc($result)) { $i++; }
+		mysqli_free_result($result);
                 return $row;
 			}
 		}
@@ -615,14 +615,14 @@ class distribuciofrecuencies {
 		{
 		$i=1;
 		$query = "select valor from tipus_distribucio,distribucions_anuals where tipus_distribucio.id_distribucio=distribucions_anuals.idDistribucio_anual and nom_distribucio='$distribucio' and demand='$demanda' order by mes";
-		$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
+		$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
 		if (!$result) {
 			$row="";
     			return $row;
 			}
 		else{
-		while ($row[$i] = mysql_fetch_assoc($result)) { $i++; }
-		mysql_free_result($result);
+		while ($row[$i] = mysqli_fetch_assoc($result)) { $i++; }
+		mysqli_free_result($result);
                 return $row;
 			}
 		}
@@ -632,14 +632,14 @@ class distribuciofrecuencies {
 		{
 		$i=1;
 		$query = "select valor from distribucions_anuals_projectes where idDistribucio_anual='$iddistribucio' and localitat='$localitat' and projecte='$projecte' and mes='$mes'";
-		$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
+		$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
 		if (!$result) {
 			$row="";
     			return $row;
 			}
 		else{
-		while ($row[$i] = mysql_fetch_assoc($result)) { $i++; }
-		mysql_free_result($result);
+		while ($row[$i] = mysqli_fetch_assoc($result)) { $i++; }
+		mysqli_free_result($result);
                 return $row;
 			}
 		}
@@ -648,14 +648,14 @@ class distribuciofrecuencies {
 		{
 		$i=1;
 		$query = "select valor from distribucions_anuals where idDistribucio_anual=$iddistribucio and demand='$demanda' and mes=$mes";
-		$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
+		$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
 		if (!$result) {
 			$row="";
     			return $row;
 			}
 		else{
-		while ($row[$i] = mysql_fetch_assoc($result)) { $i++; }
-		mysql_free_result($result);
+		while ($row[$i] = mysqli_fetch_assoc($result)) { $i++; }
+		mysqli_free_result($result);
                 return $row;
 			}
 		}
@@ -665,14 +665,14 @@ class distribuciofrecuencies {
 
 		$i=1;
 		$query = "select valor from distribucions_anuals_projectes where idDistribucio_anual='$iddistribucio' and demand='$demanda' and mes='$mes' and projecte='$projecte'";
-		$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
+		$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
 		if (!$result) {
 			$row="";
     			return $row;
 			}
 		else{
-		while ($row[$i] = mysql_fetch_assoc($result)) { $i++; }
-		mysql_free_result($result);
+		while ($row[$i] = mysqli_fetch_assoc($result)) { $i++; }
+		mysqli_free_result($result);
                 return $row;
 			}
 		}
@@ -682,14 +682,14 @@ class distribuciofrecuencies {
 		
 		$i=1;
 		$query = "select valor from distribucions_anuals where  iDdistribucio_anual='$iddistribucio' and localitat='$localitat' and mes='$mes'";
-		$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
+		$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
 		if (!$result) {
 			$row="";
     			return $row;
 			}
 		else{
-		while ($row[$i] = mysql_fetch_assoc($result)) { $i++; }
-		mysql_free_result($result);
+		while ($row[$i] = mysqli_fetch_assoc($result)) { $i++; }
+		mysqli_free_result($result);
                 return $row;
 			}
 		}
@@ -703,11 +703,11 @@ class distribuciofrecuencies {
 		//	{$tipusdis="demand";}
 		$i=0;
 		$query3="select tipo from tipus_distribucio where id_distribucio=$iddistribucio";
-		$result3=mysql_query($query3,gestio_projectesBBDD::$dbconn);
-		while ($row3[$i] = mysql_fetch_assoc($result3)) { $i++; }
+		$result3=mysqli_query(gestio_projectesBBDD::$dbconn, $query3);
+		while ($row3[$i] = mysqli_fetch_assoc($result3)) { $i++; }
 		if($row3[0]['tipo']==2){$tipusdis="localitat";}
 		if($row3[0]['tipo']==1){$tipusdis="demand";}
-		mysql_free_result($result3);
+		mysqli_free_result($result3);
 		$i=1;
 		$quantitat=1;
 		//Pasar de porcetaje a cantidades
@@ -716,10 +716,10 @@ class distribuciofrecuencies {
 			//Buscar cantidad
 			$i=0;
 			$query2="select * from projectedemandes where projecte='$proj'";
-			$result=mysql_query($query2,gestio_projectesBBDD::$dbconn);
-			while ($row2[$i] = mysql_fetch_assoc($result)) { $i++; }
+			$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query2,);
+			while ($row2[$i] = mysqli_fetch_assoc($result)) { $i++; }
 			$num=count($row2)-1;
-			mysql_free_result($result);
+			mysqli_free_result($result);
 			
 			if($num>0){
 				if($iddistribucio==4){$quantitat=$row2[0]['heatingdemand']/100;}
@@ -751,15 +751,15 @@ class distribuciofrecuencies {
 			
 		//echo "$quantitat,$auxq";
 		$query = "select * from distribucions_diaries_projectes where idDistribucio_diaria=$iddistribucio and mes='$mes' and $tipusdis='$nomdist' and projecte='$proj' order by hora";
-		$result2=mysql_query($query,gestio_projectesBBDD::$dbconn);
+		$result2=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
 		
 		if (!$result2) {
 			$row="";
     			return $row;
 			}
 		else{
-		while ($row[$i] = mysql_fetch_assoc($result2)) { $i++; }
-		mysql_free_result($result2);
+		while ($row[$i] = mysqli_fetch_assoc($result2)) { $i++; }
+		mysqli_free_result($result2);
 		$i=1;
 		foreach($row as $ar)
 			{
@@ -775,21 +775,21 @@ class distribuciofrecuencies {
 		{
 		$i=0;
 		$query3="select tipo from tipus_distribucio where id_distribucio=$iddistribucio";
-		$result3=mysql_query($query3,gestio_projectesBBDD::$dbconn);
-		while ($row3[$i] = mysql_fetch_assoc($result3)) { $i++; }
+		$result3=mysqli_query(gestio_projectesBBDD::$dbconn, $query3);
+		while ($row3[$i] = mysqli_fetch_assoc($result3)) { $i++; }
 		if($row3[0]['tipo']==2){$tipusdis="localitat";}
 		if($row3[0]['tipo']==1){$tipusdis="demand";}
-		mysql_free_result($result3);
+		mysqli_free_result($result3);
 		$i=1;$quantitat=1;
 		if($tipusdis=="demand")
 			{
 			//Buscar cantidad
 			$i=0;
 			$query2="select * from projectedemandes where projecte='$proj'";
-			$result=mysql_query($query2,gestio_projectesBBDD::$dbconn);
-			while ($row2[$i] = mysql_fetch_assoc($result)) { $i++; }
+			$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query2);
+			while ($row2[$i] = mysqli_fetch_assoc($result)) { $i++; }
 			$num=count($row2)-1;
-			mysql_free_result($result);
+			mysqli_free_result($result);
 			
 			if($num>0){
 				if($iddistribucio==4){$quantitat=$row2[0]['heatingdemand']/100;}
@@ -813,14 +813,14 @@ class distribuciofrecuencies {
 		{
 		$i=1;
 		$query = "select valor from distribucions_diaries_projectes where idDistribucio_diaria='$iddistribucio' and mes='$mes' and localitat='$localitat' and projecte='$projecte' order by hora";
-		$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
+		$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
 		if (!$result) {
 			$row="";
     			return $row;
 			}
 		else{
-		while ($row[$i] = mysql_fetch_assoc($result)) { $i++; }
-		mysql_free_result($result);
+		while ($row[$i] = mysqli_fetch_assoc($result)) { $i++; }
+		mysqli_free_result($result);
                 return $row;
 			}
 
@@ -830,14 +830,14 @@ class distribuciofrecuencies {
 		{
 		$i=1;
 		$query = "select valor from distribucions_diaries_projectes where idDistribucio_diaria='$iddistribucio' and mes='$mes' and demand='$demanda' and projecte='$projecte' order by hora";
-		$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
+		$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
 		if (!$result) {
 			$row="";
     			return $row;
 			}
 		else{
-		while ($row[$i] = mysql_fetch_assoc($result)) { $i++; }
-		mysql_free_result($result);
+		while ($row[$i] = mysqli_fetch_assoc($result)) { $i++; }
+		mysqli_free_result($result);
                 return $row;
 			}
 
@@ -847,14 +847,14 @@ class distribuciofrecuencies {
 		{
 		$i=1;
 		$query = "select valor from tipus_distribucio,distribucions_diaries where tipus_distribucio.id_distribucio=distribucions_diaries.idDistribucio_diaria and nom_distribucio='$distribucio' and mes='$mes' and demand='$demanda' order by hora";
-		$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
+		$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
 		if (!$result) {
 			$row="";
     			return $row;
 			}
 		else{
-		while ($row[$i] = mysql_fetch_assoc($result)) { $i++; }
-		mysql_free_result($result);
+		while ($row[$i] = mysqli_fetch_assoc($result)) { $i++; }
+		mysqli_free_result($result);
                 return $row;
 			}
 
@@ -864,14 +864,14 @@ class distribuciofrecuencies {
 		{
 		$i=1;
 		$query = "select valor from tipus_distribucio,distribucions_diaries where tipus_distribucio.id_distribucio=distribucions_diaries.idDistribucio_diaria and nom_distribucio='$distribucio' and mes='$mes' and localitat='$localitat' and hora='$hora'";
-		$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
+		$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
 		if (!$result) {
 			$row="";
     			return $row;
 			}
 		else{
-		while ($row[$i] = mysql_fetch_assoc($result)) { $i++; }
-		mysql_free_result($result);
+		while ($row[$i] = mysqli_fetch_assoc($result)) { $i++; }
+		mysqli_free_result($result);
                 return $row;
 			}
 
@@ -880,14 +880,14 @@ class distribuciofrecuencies {
 		{
 		$i=1;
 		$query = "select valor from distribucions_diaries where idDistribucio_diaria='$iddistribucio' and mes='$mes' and localitat='$localitat' and hora='$hora'";
-		$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
+		$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
 		if (!$result) {
 			$row="";
     			return $row;
 			}
 		else{
-		while ($row[$i] = mysql_fetch_assoc($result)) { $i++; }
-		mysql_free_result($result);
+		while ($row[$i] = mysqli_fetch_assoc($result)) { $i++; }
+		mysqli_free_result($result);
                 return $row;
 			}
 
@@ -897,14 +897,14 @@ class distribuciofrecuencies {
 		{
 		$i=1;
 		$query = "select valor from distribucions_diaries where idDistribucio_diaria='$iddistribucio' and mes='$mes' and demand='$demanda' and hora='$hora'";
-		$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
+		$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
 		if (!$result) {
 			$row="";
     			return $row;
 			}
 		else{
-		while ($row[$i] = mysql_fetch_assoc($result)) { $i++; }
-		mysql_free_result($result);
+		while ($row[$i] = mysqli_fetch_assoc($result)) { $i++; }
+		mysqli_free_result($result);
                 return $row;
 			}
 
@@ -914,14 +914,14 @@ class distribuciofrecuencies {
 		{
 		$i=1;
 		$query = "select valor from distribucions_diaries_projectes where idDistribucio_diaria='$iddistribucio' and mes='$mes' and localitat='$localitat' and hora='$hora' and projecte='$projecte'";
-		$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
+		$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
 		if (!$result) {
 			$row="";
     			return $row;
 			}
 		else{
-		while ($row[$i] = mysql_fetch_assoc($result)) { $i++; }
-		mysql_free_result($result);
+		while ($row[$i] = mysqli_fetch_assoc($result)) { $i++; }
+		mysqli_free_result($result);
                 return $row;
 			}
 
@@ -931,14 +931,14 @@ class distribuciofrecuencies {
 		{
 		$i=1;
 		$query = "select valor from distribucions_diaries_projectes where idDistribucio_diaria='$iddistribucio' and mes='$mes' and demand='$demanda' and hora='$hora' and projecte='$projecte'";
-		$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
+		$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
 		if (!$result) {
 			$row="";
     			return $row;
 			}
 		else{
-		while ($row[$i] = mysql_fetch_assoc($result)) { $i++; }
-		mysql_free_result($result);
+		while ($row[$i] = mysqli_fetch_assoc($result)) { $i++; }
+		mysqli_free_result($result);
                 return $row;
 			}
 
@@ -948,14 +948,14 @@ class distribuciofrecuencies {
 		{
 		$i=1;
 		$query = "select valor from tipus_distribucio,distribucions_diaries where tipus_distribucio.id_distribucio=distribucions_diaries.idDistribucio_diaria and nom_distribucio='$distribucio' and mes='$mes' and demand='$demanda' and hora='$hora'";
-		$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
+		$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
 		if (!$result) {
 			$row="";
     			return $row;
 			}
 		else{
-		while ($row[$i] = mysql_fetch_assoc($result)) { $i++; }
-		mysql_free_result($result);
+		while ($row[$i] = mysqli_fetch_assoc($result)) { $i++; }
+		mysqli_free_result($result);
                 return $row;
 			}
 
@@ -966,10 +966,10 @@ class distribuciofrecuencies {
 		{
 		$i=1;
 		$query = "select unitat_distribucio from tipus_distribucio where nom_distribucio='$distribucio'";
-		$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-		$row=mysql_fetch_row($result);
+		$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+		$row=mysqli_fetch_row($result);
 		$aux=$row[0];
-		mysql_free_result($result);
+		mysqli_free_result($result);
                 return $aux;
 		}
 	public static function getquantitat($distribucio)
@@ -977,10 +977,10 @@ class distribuciofrecuencies {
 		//buscar que tipo de distribucion es. Tiene que ser de frecuencia 1 y para cada ID de la 4 a la 7 darle un tipo
 		$i=1;
 		$query = "select id_distribucio from tipus_distribucio where nom_distribucio='$distribucio' and tipo='1'";
-		$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-		$row=mysql_fetch_row($result);
+		$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+		$row=mysqli_fetch_row($result);
 		$aux=$row[0];
-		mysql_free_result($result);
+		mysqli_free_result($result);
 		
 		if($aux==4){$aux2="heatingdemand";}
 		if($aux==5){$aux2="hotwaterdemand";}
@@ -989,10 +989,10 @@ class distribuciofrecuencies {
 		$i=1;
 		if($aux!=""){
 		$query = "select '$aux2' from projectedemandes,projects where nomproject=projecte and actual=1  ";
-		$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-		$row=mysql_fetch_row($result);
+		$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+		$row=mysqli_fetch_row($result);
 		$aux=$row[0];
-		mysql_free_result($result);
+		mysqli_free_result($result);
 		}
 		else {$aux=0;}
                 return $aux;
@@ -1003,10 +1003,10 @@ class distribuciofrecuencies {
 		{
 		$i=1;
 		$query = "select tipus_distribucio_detalls.quantitat from tipus_distribucio,tipus_distribucio_detalls where tipus_distribucio.id_distribucio=tipus_distribucio_detalls.id_distribucio and nom_distribucio='$distribucio' and localitat='$localitat'";
-		$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-		$row=mysql_fetch_row($result);
+		$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+		$row=mysqli_fetch_row($result);
 		$aux=$row[0];
-		mysql_free_result($result);
+		mysqli_free_result($result);
                 return $aux;
 
 		}
@@ -1015,10 +1015,10 @@ class distribuciofrecuencies {
 		{
 		$i=1;
 		$query = "select quantitat_vivendes from tipus_distribucio where nom_distribucio='$distribucio'";
-		$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-		$row=mysql_fetch_row($result);
+		$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+		$row=mysqli_fetch_row($result);
 		$aux=$row[0];
-		mysql_free_result($result);
+		mysqli_free_result($result);
                 return $aux;
 
 		}
@@ -1027,10 +1027,10 @@ class distribuciofrecuencies {
 		{
 		$i=1;
 		$query = "select tipus_distribucio_detalls.quantitat_vivendes from tipus_distribucio,tipus_distribucio_detalls where tipus_distribucio.id_distribucio=tipus_distribucio_detalls.id_distribucio and nom_distribucio='$distribucio' and localitat='$localitat'";
-		$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-		$row=mysql_fetch_row($result);
+		$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+		$row=mysqli_fetch_row($result);
 		$aux=$row[0];
-		mysql_free_result($result);
+		mysqli_free_result($result);
                 return $aux;
 
 		}
@@ -1040,10 +1040,10 @@ class distribuciofrecuencies {
 		$i=1;
 		$query = "select tipo from tipus_distribucio where nom_distribucio='$distribucio'";
 		
-		$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-		$row=mysql_fetch_row($result);
+		$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+		$row=mysqli_fetch_row($result);
 		$aux=$row[0];
-		mysql_free_result($result);
+		mysqli_free_result($result);
                 return $aux;
 
 		}
@@ -1052,10 +1052,10 @@ class distribuciofrecuencies {
 		$i=1;
 		$query = "select tipo from tipus_distribucio where id_distribucio='$distribucio'";
 		
-		$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-		$row=mysql_fetch_row($result);
+		$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+		$row=mysqli_fetch_row($result);
 		$aux=$row[0];
-		mysql_free_result($result);
+		mysqli_free_result($result);
                 return $aux;
 
 		}
@@ -1064,17 +1064,17 @@ class distribuciofrecuencies {
 		{
 		
 		$query="select max(id_distribucio) from tipus_distribucio";
-		$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
+		$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
 		if($result!=null){
 		$i=$result+1;}
 		else {$i=1;}
-		mysql_free_result($result);
+		mysqli_free_result($result);
 		
 		$query="insert into tipus_distribucio (nom_distribucio,id_distribucio,unitat_distribucio) VALUES ('$distribucio','$i','$unitat')";
 		
 		
-		$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-		mysql_free_result($result);
+		$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+		mysqli_free_result($result);
 		
 		}
 	
@@ -1087,31 +1087,31 @@ class distribuciofrecuencies {
 				//$valormes=CalcularValorMes($iddistribucio,$i);
 					
 					$query = "select valor from distribucions_anuals where idDistribucio_anual='$iddistribucio' and mes='$i'";
-					$result1=mysql_query($query,gestio_projectesBBDD::$dbconn);
-					$row=mysql_fetch_row($result1);
+					$result1=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+					$row=mysqli_fetch_row($result1);
 					$valormes=$row[0];
-					mysql_free_result($result1);	
+					mysqli_free_result($result1);	
 					
 				for($j=1;$j<=24;$j++){
 					//Buscar valordia
 					//$valordia=CalcularValorDia($iddistribucio,$j);
 					$query = "select valor from distribucions_diaries where idDistribucio_diaria='$iddistribucio' and hora='$j'";
-					$result2=mysql_query($query,gestio_projectesBBDD::$dbconn);
-					$row=mysql_fetch_row($result2);
+					$result2=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+					$row=mysqli_fetch_row($result2);
 					$valordia=$row[0];	
-					mysql_free_result($result2);
+					mysqli_free_result($result2);
 		
 					$valor=$valordia*$valormes;
 					$query="insert into distribucio_anual_diaria (id_distribucio,hora,mes,valor) VALUES ('$iddistribucio','$j','$i','$valor')";
-					$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-					//mysql_free_result($result);					
+					$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+					//mysqli_free_result($result);					
 
 					}
 				}
 			
 			//$query="insert into distribucions_diaries (idDistribucio_diaria,hora,valor) VALUES ('$iddistribucio','$i','$valors[$j]')";
-			//$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-			//mysql_free_result($result);
+			//$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+			//mysqli_free_result($result);
 			}
 		}
 
@@ -1149,10 +1149,10 @@ class distribuciofrecuencies {
 		
 		$i=1;
 		$query = "SELECT count(*) as count FROM distribucions_anuals_projectes WHERE idDistribucio_anual='$tipusdis' and projecte='$projecte' and localitat='$localitat' ";
-		$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-		$row=mysql_fetch_row($result);
+		$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+		$row=mysqli_fetch_row($result);
 		$aux=$row[0];
-		mysql_free_result($result);
+		mysqli_free_result($result);
                 return $aux;
 
 		}
@@ -1162,10 +1162,10 @@ class distribuciofrecuencies {
 		
 		$i=1;
 		$query = "SELECT count(*) as count FROM distribucions_diaries_projectes WHERE mes='$mes' and idDistribucio_diaria='$tipusdis' and projecte='$projecte' and localitat='$localitat' ";
-		$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-		$row=mysql_fetch_row($result);
+		$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+		$row=mysqli_fetch_row($result);
 		$aux=$row[0];
-		mysql_free_result($result);
+		mysqli_free_result($result);
                 return $aux;
 
 		}
@@ -1175,10 +1175,10 @@ class distribuciofrecuencies {
 		
 		$i=1;
 		$query = "SELECT count(*) as count FROM distribucions_anuals_projectes WHERE idDistribucio_anual='$tipusdis' and projecte='$projecte' and demand='$demanda' ";
-		$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-		$row=mysql_fetch_row($result);
+		$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+		$row=mysqli_fetch_row($result);
 		$aux=$row[0];
-		mysql_free_result($result);
+		mysqli_free_result($result);
                 return $aux;
 
 		}
@@ -1188,10 +1188,10 @@ class distribuciofrecuencies {
 		
 		$i=1;
 		$query = "SELECT count(*) as count FROM distribucions_diaries_projectes WHERE mes='$mes' and idDistribucio_diaria='$tipusdis' and projecte='$projecte' and demand='$demanda' ";
-		$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-		$row=mysql_fetch_row($result);
+		$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+		$row=mysqli_fetch_row($result);
 		$aux=$row[0];
-		mysql_free_result($result);
+		mysqli_free_result($result);
         return $aux;
 
 		}
@@ -1200,10 +1200,10 @@ class distribuciofrecuencies {
 		{
 		$i=1;
 		$query="SELECT count(*) FROM distribucions_anuals_projectes WHERE idDistribucio_anual=1 and projecte='".$projecte."' and mes=$mes"; 
-		$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-		$row=mysql_fetch_row($result);
+		$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+		$row=mysqli_fetch_row($result);
 		$aux=$row[0];
-		mysql_free_result($result);
+		mysqli_free_result($result);
         return $aux;
 		}
 	
@@ -1211,10 +1211,10 @@ class distribuciofrecuencies {
 		{
 		$i=1;
 		$query="SELECT count(*) FROM distribucions_anuals WHERE idDistribucio_anual=1 and localitat='".$localitat."' and mes=$mes"; 
-		$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-		$row=mysql_fetch_row($result);
+		$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+		$row=mysqli_fetch_row($result);
 		$aux=$row[0];
-		mysql_free_result($result);
+		mysqli_free_result($result);
         return $aux;
 		}
 	
@@ -1222,10 +1222,10 @@ class distribuciofrecuencies {
 		{
 		$i=1;
 		$query="SELECT valor FROM distribucions_anuals_projectes WHERE idDistribucio_anual=1 and projecte='".$projecte."' and mes=$mes"; 
-		$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-		$row=mysql_fetch_row($result);
+		$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+		$row=mysqli_fetch_row($result);
 		$aux=$row[0];
-		mysql_free_result($result);
+		mysqli_free_result($result);
         return $aux;
 		
 		}
@@ -1234,7 +1234,7 @@ class distribuciofrecuencies {
 		{
 		
 		$query="UPDATE distribucions_anuals_projectes SET valor=$valor WHERE idDistribucio_anual=".$iddistribucio." and mes=".$mes." and projecte='".$projecte."' and localitat='".$localitat."' ";
-		$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
+		$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
 		return "";
 		
 		}
@@ -1244,7 +1244,7 @@ class distribuciofrecuencies {
 		
 			
 			$query="UPDATE distribucions_diaries_projectes SET valor=valor*$k WHERE idDistribucio_diaria=".$iddistribucio." and mes=".$mes." and projecte='".$projecte."' and localitat='".$localitat."' ";
-			$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
+			$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
 			//echo "<br>$query";
 		
 		return "";
@@ -1256,10 +1256,10 @@ class distribuciofrecuencies {
 		{
 		$i=0;
 		$query="SELECT sum(valor) FROM distribucions_diaries WHERE localitat='".$localitat."' and idDistribucio_diaria=".$iddistribucio." and mes=".$mes;
-		$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-		$row=mysql_fetch_row($result);
+		$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+		$row=mysqli_fetch_row($result);
 		$aux=$row[0];
-		mysql_free_result($result);
+		mysqli_free_result($result);
 			if($mes==1){$aux=$aux*31;}
 			if($mes==2){$aux=$aux*28;}
 			if($mes==3){$aux=$aux*31;}
@@ -1280,8 +1280,8 @@ class distribuciofrecuencies {
 		{
 		$i=0;
 		$query="SELECT avg(valor) FROM distribucions_diaries WHERE localitat='".$localitat."' and idDistribucio_diaria=".$iddistribucio." and mes=".$mes;
-		$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-		$row=mysql_fetch_row($result);
+		$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+		$row=mysqli_fetch_row($result);
 		$aux=$row[0];
 		return $aux;
 		
@@ -1292,13 +1292,13 @@ class distribuciofrecuencies {
 		//mirar si existe entonces update, de lo contrario insert
 		$i=1;
 		$query="SELECT count(*) FROM distribucions_anuals WHERE idDistribucio_anual=".$iddistribucio." and mes=$mes and localitat='".$localitat."' " ; 
-		$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
-		$row=mysql_fetch_row($result);
+		$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
+		$row=mysqli_fetch_row($result);
 		if ($row[0]>0){$query="UPDATE distribucions_anuals SET valor=$valor WHERE localitat='".$localitat."' and mes=$mes and idDistribucio_anual=$iddistribucio";}
 		else{
 		$query="INSERT INTO distribucions_anuals(idDistribucio_anual, mes, valor, localitat) VALUES (".$iddistribucio.",".$mes.",".$valor.",'".$localitat."')";
 		}
-		$result=mysql_query($query,gestio_projectesBBDD::$dbconn);
+		$result=mysqli_query(gestio_projectesBBDD::$dbconn, $query);
 
 		}
 	
