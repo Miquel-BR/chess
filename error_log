@@ -1,0 +1,440 @@
+[07-Sep-2020 05:29:25 America/Chicago] PHP Warning:  mysql_fetch_assoc(): 10 is not a valid MySQL result resource in /home2/chesetupsimila/public_html/class/projectes.php on line 171
+[07-Sep-2020 05:29:25 America/Chicago] PHP Warning:  mysql_free_result(): 10 is not a valid MySQL result resource in /home2/chesetupsimila/public_html/class/projectes.php on line 172
+[07-Sep-2020 05:29:25 America/Chicago] PHP Warning:  mysql_fetch_assoc(): 12 is not a valid MySQL result resource in /home2/chesetupsimila/public_html/class/projectes.php on line 194
+[07-Sep-2020 05:29:25 America/Chicago] PHP Warning:  mysql_free_result(): 12 is not a valid MySQL result resource in /home2/chesetupsimila/public_html/class/projectes.php on line 195
+[07-Sep-2020 05:29:25 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/chesetupsimila/public_html/class/projectes.php:171) in /home2/chesetupsimila/public_html/validarprojecto.php on line 29
+[07-Sep-2020 05:29:46 America/Chicago] PHP Warning:  mysql_fetch_assoc(): 10 is not a valid MySQL result resource in /home2/chesetupsimila/public_html/class/projectes.php on line 171
+[07-Sep-2020 05:29:46 America/Chicago] PHP Warning:  mysql_free_result(): 10 is not a valid MySQL result resource in /home2/chesetupsimila/public_html/class/projectes.php on line 172
+[07-Sep-2020 05:29:46 America/Chicago] PHP Warning:  mysql_fetch_assoc(): 12 is not a valid MySQL result resource in /home2/chesetupsimila/public_html/class/projectes.php on line 194
+[07-Sep-2020 05:29:46 America/Chicago] PHP Warning:  mysql_free_result(): 12 is not a valid MySQL result resource in /home2/chesetupsimila/public_html/class/projectes.php on line 195
+[07-Sep-2020 05:29:46 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/chesetupsimila/public_html/class/projectes.php:171) in /home2/chesetupsimila/public_html/validarprojecto.php on line 29
+[14-Sep-2020 03:10:34 America/Chicago] PHP Parse error:  syntax error, unexpected '}' in /home2/chesetupsimila/public_html/economicdata.php on line 174
+[02-Dec-2020 08:55:34 America/Chicago] PHP Warning:  Division by zero in /home2/chesetupsimila/public_html/gestio_dades_solar.php on line 177
+[02-Dec-2020 08:55:34 America/Chicago] PHP Warning:  Division by zero in /home2/chesetupsimila/public_html/gestio_dades_solar.php on line 177
+[02-Dec-2020 08:55:34 America/Chicago] PHP Warning:  Division by zero in /home2/chesetupsimila/public_html/gestio_dades_solar.php on line 177
+[02-Dec-2020 08:55:34 America/Chicago] PHP Warning:  Division by zero in /home2/chesetupsimila/public_html/gestio_dades_solar.php on line 177
+[02-Dec-2020 08:55:34 America/Chicago] PHP Warning:  Division by zero in /home2/chesetupsimila/public_html/gestio_dades_solar.php on line 177
+[02-Dec-2020 08:55:34 America/Chicago] PHP Warning:  Division by zero in /home2/chesetupsimila/public_html/gestio_dades_solar.php on line 177
+[02-Dec-2020 08:55:34 America/Chicago] PHP Warning:  Division by zero in /home2/chesetupsimila/public_html/gestio_dades_solar.php on line 177
+[02-Dec-2020 08:55:34 America/Chicago] PHP Warning:  Division by zero in /home2/chesetupsimila/public_html/gestio_dades_solar.php on line 177
+[02-Dec-2020 08:55:34 America/Chicago] PHP Warning:  Division by zero in /home2/chesetupsimila/public_html/gestio_dades_solar.php on line 177
+[02-Dec-2020 08:55:34 America/Chicago] PHP Warning:  Division by zero in /home2/chesetupsimila/public_html/gestio_dades_solar.php on line 177
+[02-Dec-2020 08:55:34 America/Chicago] PHP Warning:  Division by zero in /home2/chesetupsimila/public_html/gestio_dades_solar.php on line 177
+[02-Dec-2020 08:55:34 America/Chicago] PHP Warning:  Division by zero in /home2/chesetupsimila/public_html/gestio_dades_solar.php on line 177
+[11-Mar-2021 10:18:33 America/Chicago] PHP Warning:  Division by zero in /home2/chesetupsimila/public_html/gestio_dades_solar.php on line 177
+[11-Mar-2021 10:18:33 America/Chicago] PHP Warning:  Division by zero in /home2/chesetupsimila/public_html/gestio_dades_solar.php on line 177
+[11-Mar-2021 10:18:33 America/Chicago] PHP Warning:  Division by zero in /home2/chesetupsimila/public_html/gestio_dades_solar.php on line 177
+[11-Mar-2021 10:18:33 America/Chicago] PHP Warning:  Division by zero in /home2/chesetupsimila/public_html/gestio_dades_solar.php on line 177
+[11-Mar-2021 10:18:33 America/Chicago] PHP Warning:  Division by zero in /home2/chesetupsimila/public_html/gestio_dades_solar.php on line 177
+[11-Mar-2021 10:18:33 America/Chicago] PHP Warning:  Division by zero in /home2/chesetupsimila/public_html/gestio_dades_solar.php on line 177
+[11-Mar-2021 10:18:33 America/Chicago] PHP Warning:  Division by zero in /home2/chesetupsimila/public_html/gestio_dades_solar.php on line 177
+[11-Mar-2021 10:18:33 America/Chicago] PHP Warning:  Division by zero in /home2/chesetupsimila/public_html/gestio_dades_solar.php on line 177
+[11-Mar-2021 10:18:33 America/Chicago] PHP Warning:  Division by zero in /home2/chesetupsimila/public_html/gestio_dades_solar.php on line 177
+[11-Mar-2021 10:18:33 America/Chicago] PHP Warning:  Division by zero in /home2/chesetupsimila/public_html/gestio_dades_solar.php on line 177
+[11-Mar-2021 10:18:33 America/Chicago] PHP Warning:  Division by zero in /home2/chesetupsimila/public_html/gestio_dades_solar.php on line 177
+[11-Mar-2021 10:18:33 America/Chicago] PHP Warning:  Division by zero in /home2/chesetupsimila/public_html/gestio_dades_solar.php on line 177
+[01-Jul-2021 01:50:42 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[01-Jul-2021 01:50:54 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[02-Jul-2021 14:18:20 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[23-Jul-2021 04:08:10 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[10-Aug-2021 01:08:25 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[02-Sep-2021 12:32:27 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[02-Sep-2021 12:32:31 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[02-Sep-2021 12:32:37 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[02-Sep-2021 12:32:46 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[10-Sep-2021 03:58:02 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[10-Sep-2021 03:58:27 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[10-Sep-2021 03:58:59 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[12-Sep-2021 19:27:03 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[12-Sep-2021 19:27:07 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[12-Sep-2021 19:27:13 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[12-Sep-2021 19:27:24 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[12-Sep-2021 19:28:01 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[15-Sep-2021 07:45:33 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[17-Sep-2021 21:06:08 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[17-Sep-2021 21:06:24 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[17-Sep-2021 21:06:48 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[20-Sep-2021 11:42:52 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[20-Sep-2021 12:26:23 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[20-Sep-2021 13:00:05 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[20-Sep-2021 13:05:46 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[20-Sep-2021 13:06:26 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[20-Sep-2021 15:06:43 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[25-Sep-2021 15:09:45 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[25-Sep-2021 15:09:50 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[25-Sep-2021 15:10:21 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[03-Oct-2021 10:11:30 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[03-Oct-2021 10:11:33 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[03-Oct-2021 10:11:34 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[05-Oct-2021 06:18:45 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[08-Oct-2021 22:59:07 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[14-Oct-2021 03:52:03 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[14-Oct-2021 03:54:17 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[22-Oct-2021 07:45:35 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[30-Oct-2021 05:30:28 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[10-Nov-2021 04:47:53 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[10-Nov-2021 06:24:47 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[17-Nov-2021 11:24:20 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[17-Nov-2021 11:24:43 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[17-Nov-2021 11:26:38 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[17-Nov-2021 11:29:01 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[28-Nov-2021 15:12:41 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[28-Nov-2021 15:12:46 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[03-Dec-2021 07:59:35 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[03-Dec-2021 07:59:41 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[03-Dec-2021 08:00:06 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[04-Dec-2021 16:51:53 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[09-Dec-2021 19:30:52 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[09-Dec-2021 19:31:26 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[17-Dec-2021 01:47:46 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[17-Dec-2021 01:47:56 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[17-Dec-2021 01:47:56 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[17-Dec-2021 01:48:10 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[17-Dec-2021 01:48:55 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[17-Dec-2021 01:50:36 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[17-Dec-2021 01:51:02 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[17-Dec-2021 01:52:03 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[17-Dec-2021 02:07:43 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[17-Dec-2021 02:07:46 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[17-Dec-2021 02:12:00 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[17-Dec-2021 02:15:26 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[17-Dec-2021 02:15:47 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[17-Dec-2021 02:16:02 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[17-Dec-2021 02:16:41 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[17-Dec-2021 02:18:16 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[17-Dec-2021 02:30:38 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[17-Dec-2021 02:32:06 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[17-Dec-2021 02:32:35 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[17-Dec-2021 02:35:45 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[17-Dec-2021 02:35:56 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[17-Dec-2021 02:36:05 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[17-Dec-2021 02:50:22 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[17-Dec-2021 02:54:26 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[17-Dec-2021 02:58:30 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[17-Dec-2021 03:01:39 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[17-Dec-2021 03:04:46 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
+[17-Dec-2021 03:04:48 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php:26
+Stack trace:
+#0 /home2/chesetupsimila/public_html/validar.php(6): gestio_projectesBBDD::setup()
+#1 {main}
+  thrown in /home2/chesetupsimila/public_html/class/gestio_projectesBBDD.php on line 26
